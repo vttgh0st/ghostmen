@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghostmen Linux — Kit do Iniciante</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#050505;
+    color:#f5f5f5;
+    min-height:100vh;
+}
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:
+      radial-gradient(circle at 20% 10%,rgba(0,255,120,.10),transparent 30%),
+      radial-gradient(circle at 80% 80%,rgba(0,255,120,.06),transparent 30%);
+}
+
+.container{
+    width:min(1050px,92%);
+    margin:auto;
+}
+
+.nav{
+    padding:22px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+    color:#00ff88;
+    letter-spacing:1px;
+}
+
+.back{
+    color:#aaa;
+    text-decoration:none;
+}
+
+.hero{
+    text-align:center;
+    padding:65px 0 35px;
+}
+
+.badge{
+    display:inline-block;
+    border:1px solid #00ff88;
+    color:#00ff88;
+    padding:8px 15px;
+    border-radius:30px;
+    font-size:13px;
+    margin-bottom:22px;
+}
+
+h1{
+    font-size:clamp(38px,7vw,70px);
+    line-height:1;
+    margin-bottom:22px;
+}
+
+h1 span{color:#00ff88}
+
+.hero p{
+    max-width:680px;
+    margin:auto;
+    color:#aaa;
+    font-size:18px;
+    line-height:1.6;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:25px;
+    margin:35px 0 60px;
+}
+
+.card{
+    background:rgba(15,15,15,.92);
+    border:1px solid #222;
+    border-radius:22px;
+    padding:30px;
+    box-shadow:0 0 35px rgba(0,255,120,.04);
+}
+
+.card h2{
+    margin-bottom:20px;
+}
+
+.items{
+    list-style:none;
+}
+
+.items li{
+    padding:13px 0;
+    border-bottom:1px solid #222;
+    color:#ccc;
+}
+
+.items li:before{
+    content:"✓";
+    color:#00ff88;
+    margin-right:10px;
+    font-weight:bold;
+}
+
+.price{
+    text-align:center;
+}
+
+.price small{
+    color:#888;
+}
+
+.price strong{
+    display:block;
+    font-size:55px;
+    color:#00ff88;
+    margin:8px 0 5px;
+}
+
+.pix-box{
+    text-align:center;
+    margin-top:25px;
+}
+
+#qrcode{
+    background:white;
+    padding:15px;
+    border-radius:15px;
+    display:inline-block;
+    min-height:250px;
+    min-width:250px;
+}
+
+.pix-copy{
+    margin-top:15px;
+    display:flex;
+    gap:8px;
+}
+
+.pix-copy input{
+    width:100%;
+    background:#090909;
+    color:#ddd;
+    border:1px solid #333;
+    border-radius:10px;
+    padding:13px;
+}
+
+button{
+    border:0;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.copy{
+    background:#00ff88;
+    color:#001b0d;
+    padding:0 18px;
+    border-radius:10px;
+}
+
+.buy{
+    width:100%;
+    padding:17px;
+    margin-top:15px;
+    border-radius:12px;
+    background:#00ff88;
+    color:#001b0d;
+    font-size:16px;
+    box-shadow:0 0 25px rgba(0,255,120,.2);
+}
+
+.buy:hover,.copy:hover{
+    filter:brightness(1.1);
+}
+
+.proof{
+    margin:25px 0 70px;
+}
+
+.upload{
+    border:2px dashed #333;
+    border-radius:18px;
+    padding:35px 20px;
+    text-align:center;
+    transition:.2s;
+}
+
+.upload:hover{
+    border-color:#00ff88;
+}
+
+.upload input{
+    margin-top:18px;
+    color:#aaa;
+}
+
+#status{
+    margin-top:15px;
+    color:#00ff88;
+    font-size:14px;
+}
+
+.warning{
+    color:#777;
+    font-size:13px;
+    line-height:1.5;
+    margin-top:15px;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    border-top:1px solid #181818;
+    color:#555;
+}
+
+@media(max-width:750px){
+    .grid{grid-template-columns:1fr}
+    .pix-copy{flex-direction:column}
+    .copy{padding:13px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<nav class="nav">
+    <div class="logo">👻 GHOSTMEN</div>
+    <a class="back" href="index.html">← Voltar ao curso</a>
+</nav>
+
+<section class="hero">
+    <div class="badge">GHOSTMEN LINUX</div>
+
+    <h1>Domine o Linux.<br><span>Do zero ao controle.</span></h1>
+
+    <p>
+        Um kit prático para quem quer aprender Linux,
+        entender o terminal e cuidar melhor do próprio computador.
+    </p>
+</section>
+
+<section class="grid">
+
+<div class="card">
+    <h2>📦 O que você recebe</h2>
+
+    <ul class="items">
+        <li>Guia prático para iniciantes</li>
+        <li>Comandos Linux essenciais</li>
+        <li>Checklist de manutenção</li>
+        <li>Dicas de otimização segura</li>
+        <li>Exercícios práticos</li>
+        <li>Scripts úteis</li>
+        <li>Material organizado pelo Ghostmen</li>
+    </ul>
+</div>
+
+<div class="card price">
+
+    <h2>Kit do Iniciante</h2>
+
+    <small>Pagamento único</small>
+
+    <strong>R$ 9,90</strong>
+
+    <div class="pix-box">
+
+        <div id="qrcode"></div>
+
+        <p style="color:#888;margin-top:12px">
+            Escaneie o QR Code com seu banco
+        </p>
+
+        <div class="pix-copy">
+            <input id="pixCode" readonly>
+            <button class="copy" onclick="copiarPix()">COPIAR</button>
+        </div>
+
+        <button class="buy" onclick="copiarPix()">
+            ⚡ COPIAR PIX
+        </button>
+
+    </div>
+</div>
+
+</section>
+
+<section class="card proof">
+
+    <h2>📤 Já pagou?</h2>
+
+    <p style="color:#aaa;line-height:1.6;margin-bottom:20px">
+        Envie o comprovante para confirmar seu pagamento
+        e receber o material.
+    </p>
+
+    <div class="upload">
+
+        <strong>📎 Anexar comprovante</strong>
+
+        <br>
+
+        <input
+            type="file"
+            id="comprovante"
+            accept="image/*,.pdf"
+        >
+
+        <div id="status"></div>
+
+        <p class="warning">
+            O GitHub Pages não recebe arquivos diretamente.
+            O comprovante será conectado ao canal de atendimento
+            do Ghostmen na próxima etapa.
+        </p>
+
+    </div>
+
+</section>
+
+</div>
+
+<footer>
+    © 2026 Ghostmen TI — Aprenda. Pratique. Evolua.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+<script>
+/*
+ * ⚠️ TROQUE SOMENTE ESTA CHAVE
+ * pela sua chave Pix real.
+ */
+const CHAVE_PIX = "COLOQUE_SUA_CHAVE_PIX_AQUI";
+
+const VALOR = "9.90";
+const NOME = "GHOSTMEN TI";
+const CIDADE = "PRESIDENTE PRUDENTE";
+
+function campo(id, valor){
+    return id + String(valor.length).padStart(2,"0") + valor;
+}
+
+function crc16(str){
+    let crc = 0xFFFF;
+
+    for(let i=0;i<str.length;i++){
+        crc ^= str.charCodeAt(i) << 8;
+
+        for(let j=0;j<8;j++){
+            if(crc & 0x8000){
+                crc = (crc << 1) ^ 0x1021;
+            }else{
+                crc <<= 1;
+            }
+
+            crc &= 0xFFFF;
+        }
+    }
+
+    return crc.toString(16).toUpperCase().padStart(4,"0");
+}
+
+function gerarPix(){
+
+    if(CHAVE_PIX === "COLOQUE_SUA_CHAVE_PIX_AQUI"){
+        document.getElementById("pixCode").value =
+            "Configure sua chave Pix no código da página";
+        return;
+    }
+
+    const merchant =
+        campo("00","BR.GOV.BCB.PIX") +
+        campo("01",CHAVE_PIX);
+
+    const payloadSemCRC =
+        campo("00","01") +
+        campo("26",merchant) +
+        campo("52","0000") +
+        campo("53","986") +
+        campo("54",VALOR) +
+        campo("58","BR") +
+        campo("59",NOME) +
+        campo("60",CIDADE) +
+        "6304";
+
+    const payload = payloadSemCRC + crc16(payloadSemCRC);
+
+    document.getElementById("pixCode").value = payload;
+
+    new QRCode(document.getElementById("qrcode"),{
+        text:payload,
+        width:220,
+        height:220
+    });
+}
+
+function copiarPix(){
+
+    const campoPix = document.getElementById("pixCode");
+
+    if(campoPix.value){
+        navigator.clipboard.writeText(campoPix.value);
+
+        document.querySelector(".buy").textContent =
+            "✓ PIX COPIADO!";
+
+        setTimeout(()=>{
+            document.querySelector(".buy").textContent =
+                "⚡ COPIAR PIX";
+        },2000);
+    }
+}
+
+document
+.getElementById("comprovante")
+.addEventListener("change",function(){
+
+    const status = document.getElementById("status");
+
+    if(this.files.length){
+        status.textContent =
+            "✓ Comprovante selecionado: " +
+            this.files[0].name;
+    }
+});
+
+gerarPix();
+</script>
+
+</body>
+</html>
