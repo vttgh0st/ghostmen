@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghostmen Admin</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#050505;
+    color:#fff;
+    min-height:100vh;
+}
+
+header{
+    padding:28px 20px;
+    text-align:center;
+    border-bottom:1px solid #1d1d1d;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:900;
+    color:#39ff88;
+}
+
+header p{
+    color:#888;
+}
+
+.container{
+    width:min(1000px,92%);
+    margin:35px auto;
+}
+
+.card{
+    background:#0b0b0b;
+    border:1px solid #202020;
+    border-radius:18px;
+    padding:24px;
+    margin-bottom:20px;
+}
+
+h2{
+    margin-top:0;
+}
+
+input,select,button{
+    width:100%;
+    padding:14px;
+    margin-top:10px;
+    border-radius:10px;
+    border:1px solid #292929;
+    background:#111;
+    color:white;
+    font-size:15px;
+}
+
+button{
+    background:#39ff88;
+    color:#001b0b;
+    border:none;
+    font-weight:900;
+    cursor:pointer;
+}
+
+button:hover{
+    filter:brightness(1.1);
+}
+
+#mensagem{
+    margin-top:15px;
+    color:#39ff88;
+    font-weight:bold;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+th,td{
+    padding:13px 8px;
+    border-bottom:1px solid #222;
+    text-align:left;
+}
+
+.available{
+    color:#39ff88;
+}
+
+.used{
+    color:#ff6666;
+}
+
+.code{
+    font-family:monospace;
+    font-weight:bold;
+}
+
+@media(max-width:650px){
+    table{
+        font-size:12px;
+    }
+
+    th:nth-child(3),
+    td:nth-child(3){
+        display:none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">👻 GHOSTMEN ADMIN</div>
+    <p>Painel de gerenciamento dos códigos PRO</p>
+</header>
+
+<main class="container">
+
+    <section class="card">
+        <h2>🔐 Administrador</h2>
+
+        <input
+            id="senha"
+            type="password"
+            placeholder="Senha de administrador"
+        >
+
+        <select id="quantidade">
+            <option value="1">1 código</option>
+            <option value="5">5 códigos</option>
+            <option value="10">10 códigos</option>
+            <option value="20">20 códigos</option>
+        </select>
+
+        <button id="gerar">
+            ⚡ GERAR CÓDIGOS
+        </button>
+
+        <button id="listar">
+            📋 VISUALIZAR CÓDIGOS
+        </button>
+
+        <div id="mensagem"></div>
+    </section>
+
+    <section class="card">
+        <h2>🎟️ Códigos PRO</h2>
+
+        <div style="overflow-x:auto">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Status</th>
+                        <th>Criado</th>
+                    </tr>
+                </thead>
+
+                <tbody id="lista">
+                    <tr>
+                        <td colspan="3">
+                            Nenhum código carregado.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</main>
+
+<script>
+const SUPABASE_URL =
+    "https://zdgwjvyibeojddemhjhk.supabase.co";
+
+/*
+ * COLOQUE A MESMA PUBLISHABLE KEY
+ * QUE JÁ FUNCIONOU NO pro.html
+ */
+const SUPABASE_KEY = "sb_publishable_HI2nz-Pf1RxQMVdYNvIdNA_EWoUXVVv";
+
+const senha = document.getElementById("senha");
+const quantidade = document.getElementById("quantidade");
+const mensagem = document.getElementById("mensagem");
+const lista = document.getElementById("lista");
+
+async function chamada(endpoint, dados){
+    const resposta = await fetch(
+        `${SUPABASE_URL}/rest/v1/rpc/${endpoint}`,
+        {
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json",
+                "apikey":SUPABASE_KEY,
+                "Authorization":`Bearer ${SUPABASE_KEY}`
+            },
+            body:JSON.stringify(dados)
+        }
+    );
+
+    const texto = await resposta.text();
+
+    if(!resposta.ok){
+        throw new Error(texto);
+    }
+
+    return texto ? JSON.parse(texto) : null;
+}
+
+document.getElementById("gerar").addEventListener("click",async()=>{
+    if(!senha.value){
+        mensagem.textContent="⚠️ Digite sua senha.";
+        return;
+    }
+
+    mensagem.textContent="⚡ Gerando códigos...";
+
+    try{
+        const resultado=await chamada(
+            "admin_generate_codes",
+            {
+                admin_password:senha.value,
+                amount:Number(quantidade.value)
+            }
+        );
+
+        mensagem.textContent=
+            `✅ ${resultado.length} código(s) gerado(s)!`;
+
+        carregar();
+
+    }catch(erro){
+        console.error(erro);
+        mensagem.textContent=
+            "❌ Senha inválida ou erro no servidor.";
+    }
+});
+
+document.getElementById("listar").addEventListener("click",()=>{
+    carregar();
+});
+
+async function carregar(){
+
+    if(!senha.value){
+        mensagem.textContent="⚠️ Digite sua senha.";
+        return;
+    }
+
+    mensagem.textContent="🔄 Carregando códigos...";
+
+    try{
+
+        const dados=await chamada(
+            "admin_list_codes",
+            {
+                admin_password:senha.value
+            }
+        );
+
+        lista.innerHTML="";
+
+        dados.forEach(item=>{
+
+            const tr=document.createElement("tr");
+
+            const tdCodigo=document.createElement("td");
+            tdCodigo.className="code";
+            tdCodigo.textContent=item.code;
+
+            const tdStatus=document.createElement("td");
+
+            if(item.used){
+                tdStatus.textContent="🔴 Usado";
+                tdStatus.className="used";
+            }else{
+                tdStatus.textContent="🟢 Disponível";
+                tdStatus.className="available";
+            }
+
+            const tdData=document.createElement("td");
+
+            tdData.textContent=
+                new Date(item.created_at)
+                .toLocaleString("pt-BR");
+
+            tr.appendChild(tdCodigo);
+            tr.appendChild(tdStatus);
+            tr.appendChild(tdData);
+
+            lista.appendChild(tr);
+        });
+
+        mensagem.textContent=
+            `✅ ${dados.length} código(s) encontrado(s).`;
+
+    }catch(erro){
+
+        console.error(erro);
+
+        mensagem.textContent=
+            "❌ Senha inválida ou erro no servidor.";
+    }
+}
+</script>
+
+</body>
+</html>
