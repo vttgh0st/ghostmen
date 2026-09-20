@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10 — Primeiros passos em Programação | Ghostmen TI</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+.lesson-page{max-width:850px;margin:auto;padding:90px 25px}
+.lesson-header{margin-bottom:45px}
+.lesson-number{color:#00ff73;font-family:"JetBrains Mono",monospace;font-size:13px}
+.lesson-page h1{font-size:clamp(40px,7vw,70px);line-height:1;margin:15px 0;letter-spacing:-3px}
+.intro{color:#999;font-size:18px;line-height:1.7}
+.content-card{background:#090909;border:1px solid #202020;border-radius:14px;padding:30px;margin:20px 0}
+.content-card h2{color:#00ff73;margin-bottom:15px}
+.content-card p,.content-card li{color:#aaa;line-height:1.8}
+.content-card ul{padding-left:22px}
+.code{background:#050505;border:1px solid #222;border-radius:8px;padding:18px;color:#00ff73;font-family:"JetBrains Mono",monospace;overflow:auto}
+.quiz{border:1px solid #00ff73;background:rgba(0,255,115,.03)}
+.quiz button,.complete,.next{border:0;padding:14px 20px;margin-top:18px;border-radius:7px;background:#00ff73;color:#000;font-weight:800;cursor:pointer}
+.next{display:inline-block;text-decoration:none;margin-left:8px}
+#result{margin-top:15px;color:#00ff73;font-weight:700}
+.back{color:#777}.back:hover{color:#00ff73}
+</style>
+</head>
+
+<body data-lesson="programacao">
+
+<header class="navbar">
+<div class="logo">👻 <span>GHOSTMEN</span><b>TI</b></div>
+<a class="back" href="../index.html">← Voltar para a trilha</a>
+</header>
+
+<main class="lesson-page">
+
+<div class="lesson-header">
+<span class="lesson-number">AULA 10 / 10</span>
+<h1>Primeiros passos em Programação</h1>
+<p class="intro">Entenda como programas são criados e dê seus primeiros passos no mundo da programação.</p>
+</div>
+
+<div class="content-card">
+<h2>👨‍💻 O que é programação?</h2>
+<p>Programação é o processo de criar instruções que um computador consegue executar para realizar determinadas tarefas.</p>
+<p>Essas instruções são escritas usando linguagens de programação.</p>
+</div>
+
+<div class="content-card">
+<h2>🧠 Linguagens de programação</h2>
+<p>Existem várias linguagens, e cada uma pode ser usada para diferentes tipos de projetos.</p>
+<ul>
+<li>🌐 HTML e CSS — estrutura e aparência de páginas.</li>
+<li>⚡ JavaScript — interatividade na web.</li>
+<li>🐍 Python — automação, aplicações e aprendizado.</li>
+<li>💻 C — sistemas e aplicações de baixo nível.</li>
+</ul>
+</div>
+
+<div class="content-card">
+<h2>📦 Variáveis</h2>
+<p>Uma variável pode armazenar uma informação que será usada pelo programa.</p>
+
+<div class="code">
+nome = "Ghostmen"<br>
+idade = 18
+</div>
+
+<p>O programa pode usar esses valores posteriormente para realizar operações.</p>
+</div>
+
+<div class="content-card">
+<h2>🔀 Condições</h2>
+<p>Condições permitem que um programa tome decisões dependendo de uma situação.</p>
+
+<div class="code">
+idade = 18<br><br>
+if idade &gt;= 18:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("Maior de idade")
+</div>
+</div>
+
+<div class="content-card">
+<h2>🚀 Como começar</h2>
+<ul>
+<li>📚 Escolha uma linguagem para estudar.</li>
+<li>⌨️ Pratique escrevendo código.</li>
+<li>🧩 Crie pequenos projetos.</li>
+<li>🐛 Aprenda a encontrar e corrigir erros.</li>
+<li>🔥 Evolua praticando constantemente.</li>
+</ul>
+</div>
+
+<div class="content-card quiz">
+<h2>⚡ Atividade rápida</h2>
+<p>Qual destas opções é uma linguagem de programação?</p>
+
+<button onclick="responder('❌ Tente novamente.')">Wi-Fi</button>
+<button onclick="responder('❌ Tente novamente.')">HDMI</button>
+<button onclick="responder('✅ Correto! Python é uma linguagem de programação.')">Python</button>
+
+<div id="result"></div>
+</div>
+
+<button class="complete" onclick="concluir()">✓ MARCAR AULA COMO CONCLUÍDA</button>
+<a class="next" href="../pro.html">🚀 CONHECER O GHOSTMEN PRO</a>
+
+</main>
+
+<script src="../script.js"></script>
+<script>
+function responder(mensagem){document.getElementById("result").textContent=mensagem}
+function concluir(){concluirAula("programacao");alert("Aula concluída! 👻🔥")}
+</script>
+
+</body>
+</html>
