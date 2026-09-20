@@ -897,3 +897,177 @@ footer div {
         height: 22px;
     }
 }
+
+
+/* =====================================================
+   GHOSTMEN — O QUE VOCÊ VAI APRENDER
+   ===================================================== */
+
+.ghost-learning {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 7%;
+}
+
+.ghost-learning-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.ghost-learning-card {
+    position: relative;
+    padding: 25px;
+    min-height: 230px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 20px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.035),
+            rgba(255,255,255,.012)
+        );
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        background .2s ease;
+}
+
+.ghost-learning-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(85,255,157,.28);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(85,255,157,.055),
+            rgba(255,255,255,.015)
+        );
+}
+
+.learning-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.learning-icon {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
+    background: rgba(85,255,157,.07);
+    border: 1px solid rgba(85,255,157,.12);
+    font-size: 1.45rem;
+}
+
+.learning-tag {
+    color: rgba(255,255,255,.25);
+    font-family: monospace;
+    font-size: .75rem;
+    font-weight: 900;
+}
+
+.ghost-learning-card h3 {
+    margin: 0 0 8px;
+    color: #fff;
+    font-size: 1.35rem;
+}
+
+.ghost-learning-card p {
+    min-height: 55px;
+    margin: 0;
+    color: rgba(255,255,255,.52);
+    font-size: .88rem;
+    line-height: 1.6;
+}
+
+.learning-bar {
+    height: 3px;
+    margin-top: 20px;
+    overflow: hidden;
+    border-radius: 99px;
+    background: rgba(255,255,255,.07);
+}
+
+.learning-bar span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: #55ff9d;
+    box-shadow: 0 0 12px rgba(85,255,157,.3);
+}
+
+.ghost-learning-card small {
+    display: block;
+    margin-top: 9px;
+    color: rgba(255,255,255,.32);
+    font-size: .72rem;
+}
+
+.ghost-learning-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    margin-top: 35px;
+    padding: 23px 25px;
+    border: 1px solid rgba(85,255,157,.12);
+    border-radius: 17px;
+    background: rgba(85,255,157,.035);
+}
+
+.ghost-learning-bottom strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #fff;
+}
+
+.ghost-learning-bottom span {
+    color: rgba(255,255,255,.45);
+    font-size: .84rem;
+}
+
+.learning-cta {
+    flex-shrink: 0;
+    padding: 13px 19px;
+    border-radius: 10px;
+    color: #03130a;
+    background: #55ff9d;
+    text-decoration: none;
+    font-size: .78rem;
+    font-weight: 950;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.learning-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(85,255,157,.2);
+}
+
+@media (max-width: 950px) {
+    .ghost-learning-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 620px) {
+    .ghost-learning {
+        padding: 60px 20px;
+    }
+
+    .ghost-learning-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ghost-learning-bottom {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .learning-cta {
+        text-align: center;
+    }
+}
