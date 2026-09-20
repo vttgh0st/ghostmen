@@ -1,10 +1,16 @@
 const aulas = [
+   const aulas = [
     "o-que-e-ti",
     "hardware-software",
     "sistemas-operacionais",
     "arquivos-pastas",
     "terminal",
-    "internet"
+    "internet",
+    "seguranca-digital",
+    "programacao",
+    "redes",
+    "seguranca"
+];
 ];
 
 const totalAulas = aulas.length;
