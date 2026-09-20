@@ -415,37 +415,21 @@ document
     .addEventListener("click", desbloquear);
 </script>
 
-    const codigo = document
-        .getElementById("codigo")
-        .value
-        .trim();
-
-    const mensagem = document.getElementById("mensagem");
+<script>
+/* Controle visual do acesso PRO */
+function atualizarAreaPRO() {
     const area = document.getElementById("proArea");
 
-    if(codigo === CODIGO_PRO){
+    if (!area) return;
 
-        localStorage.setItem("ghostmen-pro","true");
-
-        mensagem.style.color = "#39ff88";
-        mensagem.textContent = "✅ Acesso PRO desbloqueado!";
-
+    if (localStorage.getItem("ghostmen-pro") === "true") {
         area.classList.add("active");
-
-        setTimeout(() => {
-            area.scrollIntoView({behavior:"smooth"});
-        },300);
-
-    }else{
-
-        mensagem.style.color = "#ff5555";
-        mensagem.textContent = "❌ Código inválido.";
+    } else {
+        area.classList.remove("active");
     }
 }
 
-if(localStorage.getItem("ghostmen-pro") === "true"){
-    document.getElementById("proArea").classList.add("active");
-}
+atualizarAreaPRO();
 </script>
 
 </body>
