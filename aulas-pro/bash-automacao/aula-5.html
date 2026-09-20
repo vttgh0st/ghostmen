@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Funções — Ghostmen PRO</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#050505;color:#fff;font-family:Arial,sans-serif}
+main{max-width:850px;margin:auto;padding:45px 20px}
+a{color:#39ff88;text-decoration:none}
+.badge{color:#39ff88;font-weight:bold;letter-spacing:2px}
+h1{font-size:clamp(35px,7vw,60px)}
+p{color:#aaa;line-height:1.8;font-size:17px}
+.box{margin-top:30px;padding:28px;background:#0b0b0b;border:1px solid #39ff8833;border-radius:18px}
+button{background:#39ff88;border:0;border-radius:10px;padding:15px 22px;font-weight:900;cursor:pointer}
+#msg{color:#39ff88}
+</style>
+</head>
+<body>
+<main>
+<a href="../pro.html">← Voltar ao Ghostmen PRO</a>
+<p class="badge">⚙️ Bash & Automação • AULA PRO</p>
+<h1>Funções</h1>
+<div class="box">
+<h2>🎓 Conteúdo da aula</h2>
+<p>
+Esta aula faz parte do módulo <b>Bash & Automação</b>.
+O conteúdo completo será desenvolvido aqui com explicação,
+exemplos e desafio prático.
+</p>
+<h3>⚡ Recompensa</h3>
+<p>Conclua a aula para receber <b>100 XP</b>.</p>
+<button onclick="concluir()">👻 CONCLUIR AULA</button>
+<p id="msg"></p>
+</div>
+</main>
+<script>
+function concluir(){
+localStorage.setItem("ghostpro-bash-automacao-5","true");
+document.getElementById("msg").textContent="✅ Aula concluída! +100 XP";
+}
+</script>
+</body>
+</html>
