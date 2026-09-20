@@ -345,105 +345,82 @@ footer{
 <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 
 <script>
-/*
- * ⚠️ TROQUE SOMENTE ESTA CHAVE
- * pela sua chave Pix real.
- */
 const CHAVE_PIX = "54357348862";
-
 const VALOR = "9.90";
 const NOME = "GHOSTMEN TI";
 const CIDADE = "PRESIDENTE PRUDENTE";
 
-function campo(id, valor){
-    return id + String(valor.length).padStart(2,"0") + valor;
-}
-
-function crc16(str){
+function crc16(str) {
     let crc = 0xFFFF;
 
-    for(let i=0;i<str.length;i++){
+    for (let i = 0; i < str.length; i++) {
         crc ^= str.charCodeAt(i) << 8;
 
-        for(let j=0;j<8;j++){
-            if(crc & 0x8000){
-                crc = (crc << 1) ^ 0x1021;
-            }else{
-                crc <<= 1;
-            }
+        for (let j = 0; j < 8; j++) {
+            crc = (crc & 0x8000)
+                ? ((crc << 1) ^ 0x1021)
+                : (crc << 1);
 
             crc &= 0xFFFF;
         }
     }
 
-    return crc.toString(16).toUpperCase().padStart(4,"0");
+    return crc.toString(16).toUpperCase().padStart(4, "0");
 }
 
-function gerarPix(){
-
-    if(CHAVE_PIX === "COLOQUE_SUA_CHAVE_PIX_AQUI"){
-        document.getElementById("pixCode").value =
-            "Configure sua chave Pix no código da página";
-        return;
-    }
-
-    const merchant =
-        campo("00","BR.GOV.BCB.PIX") +
-        campo("01",CHAVE_PIX);
-
-    const payloadSemCRC =
-        campo("00","01") +
-        campo("26",merchant) +
-        campo("52","0000") +
-        campo("53","986") +
-        campo("54",VALOR) +
-        campo("58","BR") +
-        campo("59",NOME) +
-        campo("60",CIDADE) +
-        "6304";
-
-    const payload = payloadSemCRC + crc16(payloadSemCRC);
-
-    document.getElementById("pixCode").value = payload;
-
-    new QRCode(document.getElementById("qrcode"),{
-        text:payload,
-        width:220,
-        height:220
-    });
+function campo(id, valor) {
+    return id + String(valor.length).padStart(2, "0") + valor;
 }
 
-function copiarPix(){
+function gerarPix() {
+    const chave = CHAVE_PIX.replace(/\D/g, "");
+
+    let merchant = campo("00", "BR.GOV.BCB.PIX");
+    merchant += campo("01", chave);
+
+    let payload =
+        campo("00", "01") +
+        campo("26", merchant) +
+        campo("52", "0000") +
+        campo("53", "986") +
+        campo("54", VALOR) +
+        campo("58", "BR") +
+        campo("59", NOME) +
+        campo("60", CIDADE) +
+        campo("62", campo("05", "***"));
+
+    payload += "6304";
+    payload += crc16(payload);
 
     const campoPix = document.getElementById("pixCode");
+    if (campoPix) campoPix.value = payload;
 
-    if(campoPix.value){
-        navigator.clipboard.writeText(campoPix.value);
-
-        document.querySelector(".buy").textContent =
-            "✓ PIX COPIADO!";
-
-        setTimeout(()=>{
-            document.querySelector(".buy").textContent =
-                "⚡ COPIAR PIX";
-        },2000);
+    const qr = document.getElementById("qrcode");
+    if (qr && typeof QRCode !== "undefined") {
+        qr.innerHTML = "";
+        new QRCode(qr, {
+            text: payload,
+            width: 220,
+            height: 220
+        });
     }
 }
 
-document
-.getElementById("comprovante")
-.addEventListener("change",function(){
+function copiarPix() {
+    const campoPix = document.getElementById("pixCode");
 
-    const status = document.getElementById("status");
+    if (!campoPix) return;
 
-    if(this.files.length){
-        status.textContent =
-            "✓ Comprovante selecionado: " +
-            this.files[0].name;
+    navigator.clipboard.writeText(campoPix.value);
+
+    const botao = document.getElementById("copyPix");
+    if (botao) {
+        botao.textContent = "COPIADO ✓";
+        setTimeout(() => botao.textContent = "COPIAR PIX", 2000);
     }
-});
+}
 
-gerarPix();
+document.addEventListener("DOMContentLoaded", gerarPix);
 </script>
 
 </body>
