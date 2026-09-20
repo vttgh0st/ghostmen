@@ -697,7 +697,7 @@ footer{
 
         <div class="pix-copy">
             <input id="pixCode" readonly>
-            <button class="copy" onclick="copiarPix()">COPIAR</button>
+            <button id="copyPix" class="copy" onclick="copiarPix()">COPIAR</button>
         </div>
 
         <button class="buy" onclick="copiarPix()">
@@ -813,22 +813,31 @@ function gerarPix() {
 }
 
 function copiarPix() {
-    const campoPix = document.getElementById("pixCode");
-    if (!campoPix) return;
+    const campo = document.getElementById("pixCode");
+    const botao = document.getElementById("copyPix");
 
-    campoPix.focus();
-    campoPix.select();
-    campoPix.setSelectionRange(0, campoPix.value.length);
+    if (!campo) return;
+
+    campo.focus();
+    campo.select();
+    campo.setSelectionRange(0, campo.value.length);
+
+    let sucesso = false;
 
     try {
-        document.execCommand("copy");
-        const botao = document.getElementById("copyPix");
-        if (botao) {
-            botao.textContent = "COPIADO ✓";
-            setTimeout(() => botao.textContent = "COPIAR PIX", 2000);
-        }
+        sucesso = document.execCommand("copy");
     } catch (e) {
-        alert("Selecione o código Pix e pressione Ctrl+C.");
+        sucesso = false;
+    }
+
+    if (sucesso && botao) {
+        botao.textContent = "COPIADO ✓";
+
+        setTimeout(() => {
+            botao.textContent = "COPIAR";
+        }, 2000);
+    } else if (!sucesso) {
+        alert("Não foi possível copiar automaticamente. Selecione o código PIX e pressione Ctrl+C.");
     }
 }
 

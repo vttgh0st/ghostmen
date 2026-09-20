@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>09 — Manutenção de PC | Ghostmen TI</title>
+<link rel="stylesheet" href="../style.css">
+
+<style>
+.lesson-page {
+    max-width: 850px;
+    margin: auto;
+    padding: 90px 25px;
+}
+
+.lesson-header {
+    margin-bottom: 45px;
+}
+
+.lesson-number {
+    color: #00ff73;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+}
+
+.lesson-page h1 {
+    font-size: clamp(40px, 7vw, 70px);
+    line-height: 1;
+    margin: 15px 0;
+    letter-spacing: -3px;
+}
+
+.lesson-page .intro {
+    color: #999;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.content-card {
+    background: #090909;
+    border: 1px solid #202020;
+    border-radius: 14px;
+    padding: 30px;
+    margin: 20px 0;
+}
+
+.content-card h2 {
+    color: #00ff73;
+    margin-bottom: 15px;
+}
+
+.content-card p,
+.content-card li {
+    color: #aaa;
+    line-height: 1.8;
+}
+
+.content-card ul {
+    padding-left: 22px;
+}
+
+.quiz {
+    border: 1px solid #00ff73;
+    background: rgba(0,255,115,.03);
+}
+
+.quiz button,
+.complete,
+.next {
+    border: 0;
+    padding: 14px 20px;
+    margin-top: 18px;
+    border-radius: 7px;
+    background: #00ff73;
+    color: #000;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+#result {
+    margin-top: 15px;
+    color: #00ff73;
+    font-weight: 700;
+}
+
+.back {
+    color: #777;
+}
+
+.back:hover {
+    color: #00ff73;
+}
+
+.atividade {
+    margin: 50px auto;
+    max-width: 800px;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(0,255,140,.04);
+    border: 1px solid rgba(0,255,140,.2);
+}
+
+.atividade h2 {
+    color: #00ff88;
+}
+
+.atividade button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 13px;
+    border: 1px solid rgba(0,255,140,.2);
+    border-radius: 10px;
+    background: #101512;
+    color: white;
+    cursor: pointer;
+    text-align: left;
+}
+
+.atividade button:hover {
+    border-color: #00ff88;
+    transform: translateX(4px);
+}
+
+#resultado {
+    margin-top: 20px;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body data-lesson="manutencao-pc">
+
+<header class="navbar">
+    <div class="logo">👻 <span>GHOSTMEN</span><b>TI</b></div>
+    <a class="back" href="../index.html">← Voltar para a trilha</a>
+</header>
+
+<main class="lesson-page">
+
+<div class="lesson-header">
+    <span class="lesson-number">AULA 09 / 10</span>
+
+    <h1>Manutenção de PC</h1>
+
+    <p class="intro">
+        Manter um computador em boas condições ajuda a evitar problemas,
+        melhorar a estabilidade e prolongar a vida útil dos componentes.
+    </p>
+</div>
+
+<div class="content-card">
+    <h2>O que você vai aprender</h2>
+
+    <ul>
+        <li>Por que a manutenção preventiva é importante.</li>
+        <li>Como manter o sistema organizado.</li>
+        <li>Cuidados básicos com armazenamento.</li>
+        <li>Como observar sinais de superaquecimento.</li>
+        <li>Cuidados físicos com o computador.</li>
+    </ul>
+</div>
+
+<div class="content-card">
+    <h2>🧹 Manutenção preventiva</h2>
+
+    <p>
+        Manutenção preventiva significa cuidar do computador antes que
+        um problema aconteça. Isso pode incluir manter o sistema atualizado,
+        remover arquivos desnecessários, verificar o espaço disponível
+        e observar comportamentos anormais.
+    </p>
+</div>
+
+<div class="content-card">
+    <h2>🌡️ Temperatura</h2>
+
+    <p>
+        Temperaturas elevadas podem reduzir o desempenho e, dependendo
+        da situação, causar desligamentos ou instabilidade. Ventilação
+        adequada e limpeza periódica ajudam a manter o fluxo de ar.
+    </p>
+</div>
+
+<div class="content-card">
+    <h2>💾 Armazenamento</h2>
+
+    <p>
+        Manter espaço livre suficiente facilita o funcionamento do sistema.
+        Também é importante ter cópias de segurança dos arquivos importantes,
+        pois manutenção não substitui um backup.
+    </p>
+</div>
+
+<div class="content-card quiz">
+    <h2>⚡ Quiz rápido</h2>
+
+    <p>Qual é um exemplo de manutenção preventiva?</p>
+
+    <button onclick="document.getElementById('result').textContent='Resposta: manter o computador limpo, atualizado e verificar possíveis problemas antes que se agravem.'">
+        Ver resposta
+    </button>
+
+    <div id="result"></div>
+</div>
+
+<button class="complete" onclick="concluir()">
+    ✓ MARCAR AULA COMO CONCLUÍDA
+</button>
+
+<a class="next" href="programacao.html">
+    PRÓXIMA AULA →
+</a>
+
+</main>
+
+<section class="atividade">
+
+<h2>🧠 Atividade — Teste seus conhecimentos</h2>
+
+<p><strong>1.</strong> O que é manutenção preventiva?</p>
+
+<button onclick="responder(this,true)">
+    A) Cuidar do computador antes que problemas aconteçam
+</button>
+
+<button onclick="responder(this,false)">
+    B) Esperar o computador quebrar
+</button>
+
+<button onclick="responder(this,false)">
+    C) Apagar todos os arquivos
+</button>
+
+<p><strong>2.</strong> O que pode ajudar no controle da temperatura?</p>
+
+<button onclick="responder(this,false)">
+    A) Bloquear as entradas de ar
+</button>
+
+<button onclick="responder(this,true)">
+    B) Manter uma boa ventilação
+</button>
+
+<button onclick="responder(this,false)">
+    C) Cobrir as saídas de ar
+</button>
+
+<p><strong>3.</strong> Qual prática protege arquivos importantes?</p>
+
+<button onclick="responder(this,true)">
+    A) Fazer backups
+</button>
+
+<button onclick="responder(this,false)">
+    B) Manter apenas uma cópia
+</button>
+
+<button onclick="responder(this,false)">
+    C) Ignorar erros de armazenamento
+</button>
+
+<p id="resultado"></p>
+
+</section>
+
+<script src="../script.js"></script>
+
+<script>
+function concluir() {
+    concluirAula("manutencao-pc");
+    alert("Aula concluída! 👻🔥");
+}
+
+function responder(botao, correta) {
+    const resultado = document.getElementById("resultado");
+
+    if (correta) {
+        resultado.textContent =
+            "✅ Resposta correta! Continue assim, Ghost 👻";
+        resultado.style.color = "#00ff88";
+    } else {
+        resultado.textContent =
+            "❌ Não foi dessa vez. Tente novamente!";
+        resultado.style.color = "#ff5555";
+    }
+}
+</script>
+
+</body>
+</html>

@@ -2250,3 +2250,105 @@ footer div {
         padding: 0 13px;
     }
 }
+/* =====================================================
+   👻 GHOSTMEN — PROGRESSO PREMIUM
+   ===================================================== */
+
+.progress-box {
+    position: relative;
+    padding: 22px 24px;
+    margin: 20px 0;
+    border-radius: 18px;
+    background: rgba(10, 10, 14, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+}
+
+.progress-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.progress-info span {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.progress-info strong {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+
+.progress {
+    position: relative;
+    width: 100%;
+    height: 9px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.45);
+}
+
+#progressBar {
+    position: relative;
+    width: 0%;
+    height: 100%;
+    min-width: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #bdbdbd 50%,
+        #ffffff 100%
+    );
+    box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.35),
+        0 0 20px rgba(255, 255, 255, 0.12);
+    transition: width 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#progressBar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -40%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.35),
+        transparent
+    );
+    animation: ghost-progress-shine 3s infinite;
+}
+
+@keyframes ghost-progress-shine {
+    0% {
+        left: -40%;
+    }
+
+    60%,
+    100% {
+        left: 110%;
+    }
+}
+
+.progress-box:hover {
+    border-color: rgba(255, 255, 255, 0.14);
+    box-shadow:
+        0 14px 40px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: 0.25s ease;
+}

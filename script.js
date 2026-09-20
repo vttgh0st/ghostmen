@@ -1,5 +1,4 @@
 const aulas = [
-   const aulas = [
     "o-que-e-ti",
     "hardware-software",
     "sistemas-operacionais",
@@ -7,10 +6,9 @@ const aulas = [
     "terminal",
     "internet",
     "seguranca-digital",
-    "programacao",
-    "redes",
-    "seguranca"
-];
+    "redes-wifi",
+    "manutencao-pc",
+    "programacao"
 ];
 
 const totalAulas = aulas.length;
@@ -280,3 +278,10 @@ setTimeout(() => window.print(), 500);
 }
 
 atualizarProgresso();
+function responder(mensagem) {
+    const resultado = document.getElementById("result");
+
+    if (resultado) {
+        resultado.textContent = mensagem;
+    }
+}
