@@ -793,6 +793,72 @@
   </div>
 </section>
 
+
+<section class="ghost-reviews" id="avaliacoes">
+  <div class="ghost-reviews-header">
+    <span>⭐ FEEDBACK DA COMUNIDADE</span>
+    <h2>O que você achou do <strong>Ghostmen?</strong></h2>
+    <p>
+      Sua opinião ajuda a melhorar a plataforma e criar conteúdos cada vez melhores.
+    </p>
+  </div>
+
+  <div class="ghost-review-box">
+
+    <div class="review-rating">
+      <span class="review-label">Sua avaliação</span>
+
+      <div class="star-selector" role="radiogroup" aria-label="Escolha uma avaliação">
+        <button type="button" data-rating="1" aria-label="1 estrela">★</button>
+        <button type="button" data-rating="2" aria-label="2 estrelas">★</button>
+        <button type="button" data-rating="3" aria-label="3 estrelas">★</button>
+        <button type="button" data-rating="4" aria-label="4 estrelas">★</button>
+        <button type="button" data-rating="5" aria-label="5 estrelas">★</button>
+      </div>
+
+      <div class="rating-text" id="ratingText">
+        Escolha de 1 a 5 estrelas
+      </div>
+    </div>
+
+    <form id="reviewForm" class="review-form">
+
+      <div class="review-field">
+        <label for="reviewName">Seu nome ou apelido</label>
+        <input
+          id="reviewName"
+          type="text"
+          maxlength="40"
+          placeholder="Ex: GhostUser"
+          required
+        >
+      </div>
+
+      <div class="review-field">
+        <label for="reviewMessage">Seu feedback</label>
+        <textarea
+          id="reviewMessage"
+          maxlength="500"
+          rows="5"
+          placeholder="Conte o que você achou..."
+          required
+        ></textarea>
+
+        <div class="review-counter">
+          <span id="reviewCounter">0</span>/500
+        </div>
+      </div>
+
+      <button type="submit" class="review-submit">
+        ⭐ ENVIAR AVALIAÇÃO
+      </button>
+
+      <div class="review-status" id="reviewStatus" aria-live="polite"></div>
+
+    </form>
+  </div>
+</section>
+
 <footer>
     <div>👻 GHOSTMEN TI</div>
     <span>Aprender. Criar. Evoluir.</span>
@@ -806,6 +872,71 @@
     <p style="color:#999;line-height:1.6">Desbloqueie aulas avançadas, desafios e projetos exclusivos.</p>
     <a href="pro.html" style="display:inline-block;margin-top:15px;padding:14px 24px;background:#39ff88;color:#000;text-decoration:none;border-radius:10px;font-weight:900">⚡ ENTRAR NO GHOSTMEN PRO</a>
 </section>
+
+
+<script>
+(function () {
+    const stars = document.querySelectorAll(".star-selector button");
+    const ratingText = document.getElementById("ratingText");
+    const form = document.getElementById("reviewForm");
+    const message = document.getElementById("reviewMessage");
+    const counter = document.getElementById("reviewCounter");
+    const status = document.getElementById("reviewStatus");
+
+    if (!stars.length || !form || !message) return;
+
+    let selectedRating = 0;
+
+    const ratingLabels = {
+        1: "1 estrela — precisamos melhorar.",
+        2: "2 estrelas — obrigado pelo feedback.",
+        3: "3 estrelas — valeu pela avaliação!",
+        4: "4 estrelas — muito obrigado!",
+        5: "5 estrelas — que bom que curtiu! 👻"
+    };
+
+    stars.forEach(function (star) {
+        star.addEventListener("click", function () {
+            selectedRating = Number(this.dataset.rating);
+
+            stars.forEach(function (item) {
+                item.classList.toggle(
+                    "active",
+                    Number(item.dataset.rating) <= selectedRating
+                );
+            });
+
+            ratingText.textContent = ratingLabels[selectedRating];
+        });
+    });
+
+    message.addEventListener("input", function () {
+        counter.textContent = this.value.length;
+    });
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (!selectedRating) {
+            status.textContent = "⚠️ Escolha uma quantidade de estrelas.";
+            return;
+        }
+
+        status.textContent =
+            "✅ Formulário pronto! Na próxima etapa vamos salvar sua avaliação.";
+
+        form.reset();
+        selectedRating = 0;
+
+        stars.forEach(function (star) {
+            star.classList.remove("active");
+        });
+
+        ratingText.textContent = "Escolha de 1 a 5 estrelas";
+        counter.textContent = "0";
+    });
+})();
+</script>
 
 </body>
 </html>

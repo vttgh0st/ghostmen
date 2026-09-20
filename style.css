@@ -1905,3 +1905,213 @@ footer div {
         gap: 9px;
     }
 }
+
+
+/* =====================================================
+   GHOSTMEN — AVALIAÇÕES
+   ===================================================== */
+
+.ghost-reviews {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 85px 7%;
+}
+
+.ghost-reviews-header {
+    max-width: 700px;
+    margin-bottom: 38px;
+}
+
+.ghost-reviews-header > span {
+    color: #55ff9d;
+    font-size: .74rem;
+    font-weight: 900;
+    letter-spacing: .15em;
+}
+
+.ghost-reviews-header h2 {
+    margin: 10px 0 12px;
+    color: #fff;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    line-height: 1.05;
+    letter-spacing: -.045em;
+}
+
+.ghost-reviews-header h2 strong {
+    color: #55ff9d;
+}
+
+.ghost-reviews-header p {
+    margin: 0;
+    color: rgba(255,255,255,.47);
+    line-height: 1.65;
+}
+
+.ghost-review-box {
+    padding: 30px;
+    border: 1px solid rgba(85,255,157,.13);
+    border-radius: 20px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(85,255,157,.035),
+            rgba(255,255,255,.012)
+        );
+}
+
+.review-rating {
+    padding-bottom: 27px;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.review-label {
+    display: block;
+    margin-bottom: 12px;
+    color: #fff;
+    font-size: .82rem;
+    font-weight: 800;
+}
+
+.star-selector {
+    display: flex;
+    gap: 5px;
+}
+
+.star-selector button {
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 11px;
+    background: rgba(255,255,255,.025);
+    color: rgba(255,255,255,.2);
+    cursor: pointer;
+    font-size: 1.55rem;
+    line-height: 1;
+    transition: transform .15s ease, color .15s ease, background .15s ease;
+}
+
+.star-selector button:hover {
+    transform: translateY(-2px);
+    color: #55ff9d;
+    background: rgba(85,255,157,.06);
+}
+
+.star-selector button.active {
+    color: #55ff9d;
+    background: rgba(85,255,157,.08);
+    border-color: rgba(85,255,157,.2);
+}
+
+.rating-text {
+    margin-top: 10px;
+    color: rgba(255,255,255,.38);
+    font-size: .72rem;
+}
+
+.review-form {
+    display: grid;
+    gap: 20px;
+    padding-top: 27px;
+}
+
+.review-field {
+    position: relative;
+}
+
+.review-field label {
+    display: block;
+    margin-bottom: 8px;
+    color: rgba(255,255,255,.8);
+    font-size: .78rem;
+    font-weight: 700;
+}
+
+.review-field input,
+.review-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 12px;
+    outline: none;
+    background: rgba(0,0,0,.2);
+    color: #fff;
+    font: inherit;
+    font-size: 16px;
+    transition: border-color .2s ease, background .2s ease;
+}
+
+.review-field input {
+    height: 50px;
+    padding: 0 15px;
+}
+
+.review-field textarea {
+    min-height: 130px;
+    padding: 14px 15px 32px;
+    resize: vertical;
+    line-height: 1.55;
+}
+
+.review-field input::placeholder,
+.review-field textarea::placeholder {
+    color: rgba(255,255,255,.25);
+}
+
+.review-field input:focus,
+.review-field textarea:focus {
+    border-color: rgba(85,255,157,.35);
+    background: rgba(85,255,157,.025);
+}
+
+.review-counter {
+    position: absolute;
+    right: 12px;
+    bottom: 9px;
+    color: rgba(255,255,255,.25);
+    font-size: .65rem;
+}
+
+.review-submit {
+    min-height: 50px;
+    border: 0;
+    border-radius: 11px;
+    background: #55ff9d;
+    color: #03130a;
+    cursor: pointer;
+    font-size: .76rem;
+    font-weight: 950;
+    letter-spacing: .03em;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.review-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(85,255,157,.18);
+}
+
+.review-status {
+    min-height: 18px;
+    color: rgba(85,255,157,.75);
+    font-size: .76rem;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .ghost-reviews {
+        padding: 65px 20px;
+    }
+
+    .ghost-review-box {
+        padding: 22px;
+    }
+
+    .star-selector {
+        gap: 4px;
+    }
+
+    .star-selector button {
+        width: 43px;
+        height: 43px;
+    }
+}
