@@ -296,6 +296,129 @@ footer{
 }
 </style>
 
+
+<style>
+.package-card{
+    position:relative;
+    overflow:hidden;
+    border-color:#1d3d2b;
+    box-shadow:
+        0 0 35px rgba(0,255,120,.06),
+        inset 0 0 30px rgba(0,255,120,.015);
+}
+
+.package-card:before{
+    content:"";
+    position:absolute;
+    top:-80px;
+    right:-80px;
+    width:180px;
+    height:180px;
+    background:#00ff88;
+    opacity:.035;
+    filter:blur(45px);
+    border-radius:50%;
+}
+
+.package-title{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.package-title>span{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:52px;
+    height:52px;
+    border-radius:15px;
+    background:rgba(0,255,136,.08);
+    border:1px solid rgba(0,255,136,.25);
+    box-shadow:0 0 20px rgba(0,255,136,.08);
+    font-size:25px;
+}
+
+.package-title small{
+    color:#00ff88;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.package-title h2{
+    margin:4px 0 0;
+}
+
+.package-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:13px;
+}
+
+.package-item{
+    display:flex;
+    gap:13px;
+    padding:17px;
+    border-radius:14px;
+    background:rgba(0,255,136,.025);
+    border:1px solid #1c2d23;
+    transition:.2s;
+}
+
+.package-item:hover{
+    transform:translateY(-3px);
+    border-color:#00ff88;
+    background:rgba(0,255,136,.055);
+    box-shadow:0 0 22px rgba(0,255,136,.09);
+}
+
+.package-icon{
+    flex-shrink:0;
+    width:40px;
+    height:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:11px;
+    background:#0b1710;
+    border:1px solid #214a31;
+    font-size:20px;
+}
+
+.package-item strong{
+    display:block;
+    margin-bottom:5px;
+    color:#f5f5f5;
+}
+
+.package-item p{
+    color:#888;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.package-footer{
+    margin-top:20px;
+    padding-top:18px;
+    border-top:1px solid #202820;
+    text-align:center;
+    color:#777;
+    font-size:13px;
+}
+
+.package-footer strong{
+    color:#00ff88;
+}
+
+@media(max-width:750px){
+    .package-grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+
 </head>
 
 <body>
@@ -320,18 +443,70 @@ footer{
 
 <section class="grid">
 
-<div class="card">
-    <h2>📦 🚀 O que você recebe</h2>
+<div class="card package-card">
+    <div class="package-title">
+        <span>📦</span>
+        <div>
+            <small>VOCÊ RECEBE</small>
+            <h2>Kit completo para começar</h2>
+        </div>
+    </div>
 
-    <ul class="items">
-        <li>Guia prático para iniciantes</li>
-        <li>Comandos Linux essenciais</li>
-        <li>Checklist de manutenção</li>
-        <li>Dicas de otimização segura</li>
-        <li>Exercícios práticos</li>
-        <li>Scripts úteis</li>
-        <li>Material organizado pelo Ghostmen</li>
-    </ul>
+    <div class="package-grid">
+
+        <div class="package-item">
+            <div class="package-icon">🐧</div>
+            <div>
+                <strong>Guia de Linux</strong>
+                <p>Aprenda os fundamentos do Linux de forma simples.</p>
+            </div>
+        </div>
+
+        <div class="package-item">
+            <div class="package-icon">💻</div>
+            <div>
+                <strong>Terminal na prática</strong>
+                <p>Conheça comandos essenciais e aprenda a usá-los.</p>
+            </div>
+        </div>
+
+        <div class="package-item">
+            <div class="package-icon">⚡</div>
+            <div>
+                <strong>Comandos essenciais</strong>
+                <p>Uma seleção de comandos úteis para o dia a dia.</p>
+            </div>
+        </div>
+
+        <div class="package-item">
+            <div class="package-icon">🛠️</div>
+            <div>
+                <strong>Manutenção do PC</strong>
+                <p>Checklist para cuidar melhor do seu computador.</p>
+            </div>
+        </div>
+
+        <div class="package-item">
+            <div class="package-icon">🚀</div>
+            <div>
+                <strong>Otimização segura</strong>
+                <p>Dicas práticas para melhorar o sistema sem loucura.</p>
+            </div>
+        </div>
+
+        <div class="package-item">
+            <div class="package-icon">📚</div>
+            <div>
+                <strong>Material de consulta</strong>
+                <p>Conteúdo organizado para consultar quando precisar.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="package-footer">
+        👻 <strong>Ghostmen Linux</strong> — aprenda, pratique e evolua.
+    </div>
 </div>
 
 <div class="card price">
@@ -490,7 +665,7 @@ function copiarPix() {
 document.addEventListener("DOMContentLoaded", gerarPix);
 </script>
 
-<button type="button" id="instagramProof" onclick="window.open("https://www.instagram.com/gh0stvtt/","_blank")">📸 ENVIAR COMPROVANTE PELO INSTAGRAM</button><style>
+<button type="button" id="instagramProof" onclick="window.open('https://www.instagram.com/gh0stvtt/','_blank')">📸 ENVIAR COMPROVANTE PELO INSTAGRAM</button><style>
 .sale-badge{display:inline-block;margin:10px 0 18px;padding:8px 16px;border:1px solid #39ff88;border-radius:999px;color:#39ff88;font-weight:800;letter-spacing:1px;box-shadow:0 0 18px #39ff8833}
 .price-note{margin-top:-10px;color:#aaa;font-size:14px}
 .trust-line{margin:24px auto;max-width:700px;color:#bdbdbd}
