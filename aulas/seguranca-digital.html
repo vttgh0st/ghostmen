@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>07 — Segurança Digital | Ghostmen TI</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+.lesson-page{max-width:850px;margin:auto;padding:90px 25px}
+.lesson-header{margin-bottom:45px}
+.lesson-number{color:#00ff73;font-family:"JetBrains Mono",monospace;font-size:13px}
+.lesson-page h1{font-size:clamp(40px,7vw,70px);line-height:1;margin:15px 0;letter-spacing:-3px}
+.intro{color:#999;font-size:18px;line-height:1.7}
+.content-card{background:#090909;border:1px solid #202020;border-radius:14px;padding:30px;margin:20px 0}
+.content-card h2{color:#00ff73;margin-bottom:15px}
+.content-card p,.content-card li{color:#aaa;line-height:1.8}
+.content-card ul{padding-left:22px}
+.quiz{border:1px solid #00ff73;background:rgba(0,255,115,.03)}
+.quiz button,.complete,.next{border:0;padding:14px 20px;margin-top:18px;border-radius:7px;background:#00ff73;color:#000;font-weight:800;cursor:pointer}
+.next{display:inline-block;text-decoration:none;margin-left:8px}
+#result{margin-top:15px;color:#00ff73;font-weight:700}
+.back{color:#777}.back:hover{color:#00ff73}
+</style>
+</head>
+
+<body data-lesson="seguranca-digital">
+
+<header class="navbar">
+<div class="logo">👻 <span>GHOSTMEN</span><b>TI</b></div>
+<a class="back" href="../index.html">← Voltar para a trilha</a>
+</header>
+
+<main class="lesson-page">
+
+<div class="lesson-header">
+<span class="lesson-number">AULA 07 / 10</span>
+<h1>Segurança Digital</h1>
+<p class="intro">Aprenda a proteger suas contas, dispositivos e informações contra golpes, ataques e programas maliciosos.</p>
+</div>
+
+<div class="content-card">
+<h2>🔐 O que é Segurança Digital?</h2>
+<p>É o conjunto de práticas usadas para proteger dispositivos, contas, arquivos e dados contra ameaças e acessos não autorizados.</p>
+</div>
+
+<div class="content-card">
+<h2>🔑 Senhas fortes</h2>
+<ul>
+<li>Use senhas longas e difíceis de adivinhar.</li>
+<li>Não reutilize a mesma senha em vários sites.</li>
+<li>Ative a autenticação em dois fatores (2FA).</li>
+<li>Nunca compartilhe códigos de segurança.</li>
+</ul>
+</div>
+
+<div class="content-card">
+<h2>🎣 Phishing</h2>
+<p>Phishing é uma tentativa de enganar alguém para conseguir senhas, códigos ou outros dados.</p>
+<p>Desconfie de mensagens urgentes, links estranhos e páginas que pedem informações sensíveis.</p>
+</div>
+
+<div class="content-card">
+<h2>🦠 Malware</h2>
+<p>Malware é um software malicioso. Vírus, trojans, spyware e ransomware são exemplos.</p>
+</div>
+
+<div class="content-card">
+<h2>🛡️ Como se proteger</h2>
+<ul>
+<li>🔄 Mantenha o sistema atualizado.</li>
+<li>🔐 Use senhas fortes e únicas.</li>
+<li>📱 Ative o 2FA.</li>
+<li>🚫 Evite links e arquivos suspeitos.</li>
+<li>💾 Faça backups importantes.</li>
+</ul>
+</div>
+
+<div class="content-card quiz">
+<h2>⚡ Atividade rápida</h2>
+<p>Qual atitude aumenta a segurança de uma conta?</p>
+
+<button onclick="responder('❌ Tente novamente.')">Usar a mesma senha em todos os sites</button>
+<button onclick="responder('❌ Tente novamente.')">Compartilhar códigos de segurança</button>
+<button onclick="responder('✅ Correto! O 2FA adiciona uma camada extra de proteção.')">Ativar autenticação em dois fatores (2FA)</button>
+
+<div id="result"></div>
+</div>
+
+<button class="complete" onclick="concluir()">✓ MARCAR AULA COMO CONCLUÍDA</button>
+<a class="next" href="redes-wifi.html">PRÓXIMA AULA →</a>
+
+</main>
+
+<script src="../script.js"></script>
+<script>
+function responder(mensagem){document.getElementById("result").textContent=mensagem}
+function concluir(){concluirAula("seguranca-digital");alert("Aula concluída! 👻🔥")}
+</script>
+
+</body>
+</html>
