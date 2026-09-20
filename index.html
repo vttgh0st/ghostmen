@@ -793,6 +793,62 @@
   </div>
 </section>
 
+
+<section id="gm-feedback">
+  <div class="gm-feedback-head">
+    <span>⭐ FEEDBACK</span>
+    <h2>Conte o que você achou.</h2>
+    <p>Sua opinião ajuda o Ghostmen a continuar evoluindo.</p>
+  </div>
+
+  <div class="gm-feedback-card">
+
+    <div class="gm-stars" aria-label="Escolha sua avaliação">
+      <button type="button" data-gm-star="1">★</button>
+      <button type="button" data-gm-star="2">★</button>
+      <button type="button" data-gm-star="3">★</button>
+      <button type="button" data-gm-star="4">★</button>
+      <button type="button" data-gm-star="5">★</button>
+    </div>
+
+    <div id="gm-rating-label">
+      Escolha uma avaliação
+    </div>
+
+    <form id="gm-feedback-form">
+
+      <label>
+        Nome ou apelido
+        <input
+          id="gm-feedback-name"
+          type="text"
+          maxlength="40"
+          placeholder="Como podemos te chamar?"
+          required
+        >
+      </label>
+
+      <label>
+        Seu feedback
+        <textarea
+          id="gm-feedback-text"
+          maxlength="500"
+          rows="5"
+          placeholder="O que você achou do Ghostmen?"
+          required
+        ></textarea>
+      </label>
+
+      <button type="submit" id="gm-feedback-send">
+        ⭐ ENVIAR FEEDBACK
+      </button>
+
+      <div id="gm-feedback-message"></div>
+
+    </form>
+  </div>
+</section>
+
 <footer>
     <div>👻 GHOSTMEN TI</div>
     <span>Aprender. Criar. Evoluir.</span>
@@ -806,6 +862,48 @@
     <p style="color:#999;line-height:1.6">Desbloqueie aulas avançadas, desafios e projetos exclusivos.</p>
     <a href="pro.html" style="display:inline-block;margin-top:15px;padding:14px 24px;background:#39ff88;color:#000;text-decoration:none;border-radius:10px;font-weight:900">⚡ ENTRAR NO GHOSTMEN PRO</a>
 </section>
+
+
+<script>
+(function () {
+  const box = document.getElementById("gm-feedback");
+  if (!box) return;
+
+  const stars = box.querySelectorAll("[data-gm-star]");
+  const label = box.querySelector("#gm-rating-label");
+  const form = box.querySelector("#gm-feedback-form");
+  const message = box.querySelector("#gm-feedback-message");
+
+  let rating = 0;
+
+  stars.forEach(function (star) {
+    star.addEventListener("click", function () {
+      rating = Number(this.dataset.gmStar);
+
+      stars.forEach(function (item) {
+        item.classList.toggle(
+          "gm-selected",
+          Number(item.dataset.gmStar) <= rating
+        );
+      });
+
+      label.textContent = rating + (rating === 1 ? " estrela" : " estrelas");
+    });
+  });
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    if (rating === 0) {
+      message.textContent = "⚠️ Escolha de 1 a 5 estrelas.";
+      return;
+    }
+
+    message.textContent =
+      "✅ Feedback preenchido! Vamos conectar o envio ao banco na próxima etapa.";
+  });
+})();
+</script>
 
 </body>
 </html>

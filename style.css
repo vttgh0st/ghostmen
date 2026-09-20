@@ -1905,3 +1905,154 @@ footer div {
         gap: 9px;
     }
 }
+
+
+/* GHOSTMEN FEEDBACK V2 */
+
+#gm-feedback {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 70px 7%;
+}
+
+#gm-feedback .gm-feedback-head {
+  margin-bottom: 30px;
+}
+
+#gm-feedback .gm-feedback-head span {
+  color: #55ff9d;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+#gm-feedback .gm-feedback-head h2 {
+  margin: 10px 0;
+  color: #fff;
+  font-size: clamp(30px, 5vw, 46px);
+  line-height: 1.05;
+}
+
+#gm-feedback .gm-feedback-head p {
+  margin: 0;
+  color: rgba(255,255,255,.5);
+}
+
+#gm-feedback .gm-feedback-card {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 28px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 18px;
+  background: rgba(255,255,255,.025);
+}
+
+#gm-feedback .gm-stars {
+  display: flex;
+  gap: 7px;
+  margin-bottom: 10px;
+}
+
+#gm-feedback .gm-stars button {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 10px;
+  background: rgba(255,255,255,.025);
+  color: rgba(255,255,255,.2);
+  font-size: 23px;
+  cursor: pointer;
+}
+
+#gm-feedback .gm-stars button.gm-selected {
+  color: #55ff9d;
+  border-color: rgba(85,255,157,.25);
+  background: rgba(85,255,157,.06);
+}
+
+#gm-feedback #gm-rating-label {
+  margin-bottom: 25px;
+  color: rgba(255,255,255,.4);
+  font-size: 13px;
+}
+
+#gm-feedback form {
+  display: grid;
+  gap: 18px;
+}
+
+#gm-feedback label {
+  display: grid;
+  gap: 7px;
+  color: rgba(255,255,255,.75);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+#gm-feedback input,
+#gm-feedback textarea {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 10px;
+  background: rgba(0,0,0,.2);
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+  outline: none;
+}
+
+#gm-feedback input {
+  height: 48px;
+  padding: 0 14px;
+}
+
+#gm-feedback textarea {
+  min-height: 120px;
+  padding: 13px 14px;
+  resize: vertical;
+}
+
+#gm-feedback input:focus,
+#gm-feedback textarea:focus {
+  border-color: rgba(85,255,157,.35);
+}
+
+#gm-feedback input::placeholder,
+#gm-feedback textarea::placeholder {
+  color: rgba(255,255,255,.25);
+}
+
+#gm-feedback #gm-feedback-send {
+  min-height: 48px;
+  border: 0;
+  border-radius: 10px;
+  background: #55ff9d;
+  color: #03130a;
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+#gm-feedback #gm-feedback-message {
+  min-height: 18px;
+  color: #55ff9d;
+  font-size: 12px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  #gm-feedback {
+    padding: 55px 20px;
+  }
+
+  #gm-feedback .gm-feedback-card {
+    padding: 20px;
+  }
+
+  #gm-feedback .gm-stars button {
+    width: 42px;
+    height: 42px;
+  }
+}
