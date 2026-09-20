@@ -132,5 +132,80 @@ function concluir() {
 }
 </script>
 
+
+<section class="atividade">
+  <h2>🧠 Atividade — Teste seus conhecimentos</h2>
+
+  <p><strong>1.</strong> Qual é a função do DNS?</p>
+  <button onclick="responder(this,false)">A) Aumentar a velocidade do Wi-Fi</button>
+  <button onclick="responder(this,true)">B) Encontrar o IP associado a um domínio</button>
+  <button onclick="responder(this,false)">C) Criar uma senha</button>
+
+  <p><strong>2.</strong> O que é um servidor?</p>
+  <button onclick="responder(this,true)">A) Um computador que fornece serviços ou recursos</button>
+  <button onclick="responder(this,false)">B) Um tipo de cabo de rede</button>
+  <button onclick="responder(this,false)">C) Um navegador</button>
+
+  <p><strong>3.</strong> O que são pacotes de dados?</p>
+  <button onclick="responder(this,false)">A) Programas instalados</button>
+  <button onclick="responder(this,true)">B) Pequenas partes dos dados transmitidos pela rede</button>
+  <button onclick="responder(this,false)">C) Arquivos de configuração do navegador</button>
+
+  <p id="resultado"></p>
+</section>
+
+<script>
+function responder(botao, correta) {
+  const resultado = document.getElementById("resultado");
+
+  if (correta) {
+    resultado.textContent = "✅ Resposta correta! Continue assim, Ghost 👻";
+    resultado.style.color = "#00ff88";
+  } else {
+    resultado.textContent = "❌ Não foi dessa vez. Tente novamente!";
+    resultado.style.color = "#ff5555";
+  }
+}
+</script>
+
+<style>
+.atividade {
+  margin: 50px auto;
+  max-width: 800px;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(0,255,140,.04);
+  border: 1px solid rgba(0,255,140,.2);
+}
+
+.atividade h2 {
+  color: #00ff88;
+}
+
+.atividade button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 13px;
+  border: 1px solid rgba(0,255,140,.2);
+  border-radius: 10px;
+  background: #101512;
+  color: white;
+  cursor: pointer;
+  text-align: left;
+}
+
+.atividade button:hover {
+  border-color: #00ff88;
+  transform: translateX(4px);
+}
+
+#resultado {
+  margin-top: 20px;
+  font-weight: bold;
+}
+</style>
+
 </body>
 </html>
+
