@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghostmen PRO 👻</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#050505;
+    color:#fff;
+}
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 20% 20%,#39ff8812,transparent 30%),
+        radial-gradient(circle at 80% 80%,#00ff6610,transparent 30%);
+    pointer-events:none;
+}
+
+header{
+    padding:25px;
+    text-align:center;
+    border-bottom:1px solid #39ff8833;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:900;
+    color:#39ff88;
+    text-shadow:0 0 15px #39ff8866;
+}
+
+.badge{
+    display:inline-block;
+    margin-top:10px;
+    padding:7px 14px;
+    border:1px solid #39ff88;
+    border-radius:30px;
+    color:#39ff88;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.hero{
+    max-width:1000px;
+    margin:auto;
+    padding:70px 20px 40px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:clamp(38px,7vw,72px);
+    margin:0;
+    color:#fff;
+}
+
+.hero h1 span{
+    color:#39ff88;
+    text-shadow:0 0 25px #39ff8866;
+}
+
+.hero p{
+    color:#aaa;
+    max-width:650px;
+    margin:20px auto;
+    line-height:1.7;
+}
+
+.unlock{
+    max-width:500px;
+    margin:30px auto;
+    padding:25px;
+    background:#0b0b0b;
+    border:1px solid #39ff8833;
+    border-radius:18px;
+    box-shadow:0 0 35px #000;
+}
+
+.unlock h2{
+    margin-top:0;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    background:#050505;
+    border:1px solid #333;
+    border-radius:10px;
+    color:white;
+    outline:none;
+    text-align:center;
+    font-size:15px;
+}
+
+input:focus{
+    border-color:#39ff88;
+    box-shadow:0 0 15px #39ff8822;
+}
+
+button{
+    width:100%;
+    margin-top:12px;
+    padding:15px;
+    border:0;
+    border-radius:10px;
+    background:#39ff88;
+    color:#000;
+    font-weight:900;
+    cursor:pointer;
+    transition:.2s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 25px #39ff8855;
+}
+
+#mensagem{
+    margin-top:15px;
+    min-height:20px;
+    font-size:14px;
+}
+
+.pro-area{
+    display:none;
+    max-width:1100px;
+    margin:auto;
+    padding:30px 20px 80px;
+}
+
+.pro-area.active{
+    display:block;
+}
+
+.pro-title{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.pro-title h2{
+    color:#39ff88;
+    font-size:32px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:18px;
+}
+
+.card{
+    background:#0b0b0b;
+    border:1px solid #39ff8825;
+    border-radius:16px;
+    padding:22px;
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#39ff8877;
+    box-shadow:0 10px 35px #000;
+}
+
+.card .icon{
+    font-size:32px;
+}
+
+.card h3{
+    margin:12px 0 8px;
+}
+
+.card p{
+    color:#999;
+    line-height:1.5;
+    font-size:14px;
+}
+
+.level{
+    display:inline-block;
+    font-size:11px;
+    padding:5px 9px;
+    border-radius:20px;
+    background:#39ff8815;
+    color:#39ff88;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    border-top:1px solid #ffffff10;
+    color:#666;
+}
+
+@media(max-width:600px){
+    .hero{padding-top:45px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">👻 GHOSTMEN</div>
+    <div class="badge">PRO AREA</div>
+</header>
+
+<section class="hero">
+
+    <h1>GHOSTMEN <span>PRO</span></h1>
+
+    <p>
+        Você foi além do básico.
+        Agora desbloqueie aulas avançadas,
+        desafios e conhecimentos para evoluir de verdade.
+    </p>
+
+    <div class="unlock">
+        <h2>🔐 Desbloquear acesso</h2>
+
+        <input
+            id="codigo"
+            type="text"
+            placeholder="Digite seu código PRO"
+            autocomplete="off"
+        >
+
+        <button onclick="desbloquear()">
+            🚀 DESBLOQUEAR GHOSTMEN PRO
+        </button>
+
+        <div id="mensagem"></div>
+    </div>
+
+</section>
+
+<section class="pro-area" id="proArea">
+
+    <div class="pro-title">
+        <h2>⚡ CONTEÚDO GHOSTMEN PRO</h2>
+        <p>Conteúdo avançado desbloqueado.</p>
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="icon">🐧</div>
+            <span class="level">AVANÇADO</span>
+            <h3>Linux Avançado</h3>
+            <p>Domine processos, serviços, permissões e administração do sistema.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">⌨️</div>
+            <span class="level">AVANÇADO</span>
+            <h3>Terminal Profissional</h3>
+            <p>Aprenda comandos poderosos e crie fluxos de trabalho mais rápidos.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">⚙️</div>
+            <span class="level">PRO</span>
+            <h3>Bash & Automação</h3>
+            <p>Crie scripts para automatizar tarefas repetitivas no Linux.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌐</div>
+            <span class="level">PRO</span>
+            <h3>Redes</h3>
+            <p>Entenda IP, DNS, portas, conexões e ferramentas de diagnóstico.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔐</div>
+            <span class="level">PRO</span>
+            <h3>Segurança Digital</h3>
+            <p>Aprenda fundamentos de segurança, privacidade e proteção de sistemas.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🐍</div>
+            <span class="level">PRO</span>
+            <h3>Programação</h3>
+            <p>Comece a programar e construa seus primeiros projetos práticos.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🛠️</div>
+            <span class="level">PRO</span>
+            <h3>Manutenção</h3>
+            <p>Diagnóstico, otimização e manutenção de computadores na prática.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🚀</div>
+            <span class="level">PRO</span>
+            <h3>Projeto Final</h3>
+            <p>Coloque o conhecimento em prática criando um projeto para seu portfólio.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    👻 Ghostmen TI — Aprenda. Pratique. Evolua.
+</footer>
+
+<script>
+const CODIGO_PRO = "GHOSTPRO-9X7K";
+
+function desbloquear(){
+
+    const codigo = document
+        .getElementById("codigo")
+        .value
+        .trim();
+
+    const mensagem = document.getElementById("mensagem");
+    const area = document.getElementById("proArea");
+
+    if(codigo === CODIGO_PRO){
+
+        localStorage.setItem("ghostmen-pro","true");
+
+        mensagem.style.color = "#39ff88";
+        mensagem.textContent = "✅ Acesso PRO desbloqueado!";
+
+        area.classList.add("active");
+
+        setTimeout(() => {
+            area.scrollIntoView({behavior:"smooth"});
+        },300);
+
+    }else{
+
+        mensagem.style.color = "#ff5555";
+        mensagem.textContent = "❌ Código inválido.";
+    }
+}
+
+if(localStorage.getItem("ghostmen-pro") === "true"){
+    document.getElementById("proArea").classList.add("active");
+}
+</script>
+
+</body>
+</html>
