@@ -408,15 +408,21 @@ function gerarPix() {
 
 function copiarPix() {
     const campoPix = document.getElementById("pixCode");
-
     if (!campoPix) return;
 
-    navigator.clipboard.writeText(campoPix.value).then(() => { alert("Pix copiado! Cole no aplicativo do seu banco."); }).catch(() => { campoPix.select(); document.execCommand("copy"); alert("Pix copiado!"); });
+    campoPix.focus();
+    campoPix.select();
+    campoPix.setSelectionRange(0, campoPix.value.length);
 
-    const botao = document.getElementById("copyPix");
-    if (botao) {
-        botao.textContent = "COPIADO ✓";
-        setTimeout(() => botao.textContent = "COPIAR PIX", 2000);
+    try {
+        document.execCommand("copy");
+        const botao = document.getElementById("copyPix");
+        if (botao) {
+            botao.textContent = "COPIADO ✓";
+            setTimeout(() => botao.textContent = "COPIAR PIX", 2000);
+        }
+    } catch (e) {
+        alert("Selecione o código Pix e pressione Ctrl+C.");
     }
 }
 
