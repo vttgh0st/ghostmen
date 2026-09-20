@@ -4,84 +4,176 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Disco e Armazenamento — Ghostmen PRO</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#050505;color:#eee;font-family:Arial,sans-serif}
-main{max-width:900px;margin:auto;padding:40px 20px 80px}
-a{color:#39ff88;text-decoration:none}
-.badge{color:#39ff88;font-weight:bold;letter-spacing:2px;margin-top:30px}
-h1{font-size:clamp(36px,7vw,60px);margin:12px 0}
-h2{color:#39ff88;margin-top:40px}
-p,li{color:#aaa;line-height:1.8;font-size:17px}
-.box{background:#0b0b0b;border:1px solid #39ff8833;border-radius:16px;padding:25px;margin:25px 0}
-pre{background:#020202;border:1px solid #222;border-radius:10px;padding:18px;color:#39ff88;overflow:auto;line-height:1.7}
-button{background:#39ff88;color:#000;border:0;border-radius:10px;padding:15px 22px;font-weight:900;cursor:pointer}
-button:hover{box-shadow:0 0 25px #39ff8855}
-#msg{color:#39ff88;font-weight:bold}
+
+body{
+margin:0;
+background:#050505;
+color:#eee;
+font-family:Arial,sans-serif;
+}
+
+main{
+max-width:900px;
+margin:auto;
+padding:40px 20px 80px;
+}
+
+a{
+color:#39ff88;
+text-decoration:none;
+}
+
+.badge{
+color:#39ff88;
+font-weight:bold;
+letter-spacing:2px;
+margin-top:30px;
+}
+
+h1{
+font-size:clamp(36px,7vw,60px);
+margin:12px 0;
+}
+
+h2{
+color:#39ff88;
+margin-top:40px;
+}
+
+p{
+color:#aaa;
+line-height:1.8;
+font-size:17px;
+}
+
+.box{
+background:#0b0b0b;
+border:1px solid #39ff8833;
+border-radius:16px;
+padding:25px;
+margin:25px 0;
+}
+
+.lesson-info{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin:20px 0;
+}
+
+.tag{
+padding:7px 12px;
+border-radius:20px;
+background:#39ff8815;
+color:#39ff88;
+font-size:13px;
+}
+
+button{
+background:#39ff88;
+color:#000;
+border:0;
+border-radius:10px;
+padding:15px 22px;
+font-weight:900;
+cursor:pointer;
+}
+
+button:hover{
+box-shadow:0 0 25px #39ff8855;
+}
+
+#msg{
+color:#39ff88;
+font-weight:bold;
+}
 </style>
 </head>
+
 <body>
+
 <main>
+
 <a href="index.html">← Voltar para Linux Avançado</a>
-<div class="badge">🐧 GHOSTMEN PRO • AULA 7</div>
+
+<div class="badge">🐧 GHOSTMEN PRO • AULA 07</div>
+
 <h1>Disco e Armazenamento</h1>
-<p>Aprenda a verificar espaço disponível, diretórios grandes e dispositivos de armazenamento.</p>
+
+<div class="lesson-info">
+<span class="tag">💎 PRO</span>
+<span class="tag">⚡ +100 XP</span>
+<span class="tag">📚 Linux Avançado</span>
+</div>
 
 <div class="box">
+
+<h2>🎓 Sobre esta aula</h2>
+
+<p>
+Esta aula faz parte do módulo <b>Linux Avançado</b>.
+Aqui você vai aprender conceitos importantes,
+ver exemplos práticos e realizar um desafio.
+</p>
+
+</div>
+
+<div class="box">
+
 <h2>📚 Conteúdo</h2>
-<pre>O Linux possui várias ferramentas para analisar armazenamento.
 
-Para verificar espaço das partições:
+<p>
+O conteúdo completo desta aula será apresentado
+aqui com explicações passo a passo, exemplos,
+comandos e exercícios práticos.
+</p>
 
-df -h
-
-O parâmetro -h deixa os tamanhos mais fáceis de ler.
-
-Para descobrir o tamanho de um diretório:
-
-du -sh ~
-
-Para listar dispositivos:
-
-lsblk
-
-Para verificar o uso do diretório atual:
-
-du -sh .
-
-Esses comandos ajudam a encontrar rapidamente problemas causados por falta de espaço.</pre>
 </div>
 
 <div class="box">
+
 <h2>🧪 Desafio prático</h2>
-<pre>Execute:
 
-df -h
+<p>
+Depois de estudar o conteúdo, realize uma atividade
+prática relacionada ao tema desta aula.
+</p>
 
-Depois:
-
-lsblk
-
-E:
-
-du -sh ~
-
-Observe quanto espaço está disponível na sua partição principal.</pre>
 </div>
 
 <div class="box">
+
 <h2>🏆 Concluir aula</h2>
-<p>Terminou o estudo e realizou o desafio? Marque a aula como concluída.</p>
-<button onclick="concluir()">👻 CONCLUIR AULA +100 XP</button>
+
+<p>
+Quando terminar o estudo e o desafio, marque a aula
+como concluída para registrar seu progresso.
+</p>
+
+<button onclick="concluir()">
+👻 CONCLUIR AULA +100 XP
+</button>
+
 <p id="msg"></p>
+
 </div>
+
 </main>
 
 <script>
 function concluir(){
-localStorage.setItem("ghostpro-linux-avancado-7","true");
-document.getElementById("msg").textContent="✅ Aula concluída! +100 XP";
+localStorage.setItem(
+"ghostpro-linux-avancado-7",
+"true"
+);
+
+document.getElementById("msg").textContent =
+"✅ Aula concluída! +100 XP";
 }
 </script>
+
 </body>
 </html>
