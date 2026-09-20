@@ -382,8 +382,24 @@ async function desbloquear() {
         if (valido === true) {
             localStorage.setItem("ghostmen-pro", "true");
 
+            const area = document.getElementById("proArea");
+
+            if (area) {
+                area.classList.add("active");
+                area.style.display = "block";
+            }
+
             mensagem.textContent =
                 "✅ Código ativado! Bem-vindo ao Ghostmen PRO 👻";
+
+            setTimeout(() => {
+                if (area) {
+                    area.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+                }
+            }, 300);
 
             botao.textContent = "✅ PRO ATIVADO";
 
