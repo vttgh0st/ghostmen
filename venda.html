@@ -411,7 +411,7 @@ function copiarPix() {
 
     if (!campoPix) return;
 
-    navigator.clipboard.writeText(campoPix.value);
+    navigator.clipboard.writeText(campoPix.value).then(() => { alert("Pix copiado! Cole no aplicativo do seu banco."); }).catch(() => { campoPix.select(); document.execCommand("copy"); alert("Pix copiado!"); });
 
     const botao = document.getElementById("copyPix");
     if (botao) {
