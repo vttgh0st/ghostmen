@@ -419,6 +419,155 @@ footer{
 }
 </style>
 
+<style>
+
+/* =========================================================
+   GHOSTMEN — HERO DE VENDA PREMIUM
+   ========================================================= */
+
+.gm-sale-hero {
+    position: relative;
+    max-width: 900px;
+    margin: 35px auto 25px;
+    padding: 55px 25px;
+    text-align: center;
+    overflow: hidden;
+    border: 1px solid rgba(156,255,87,.16);
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(156,255,87,.10), transparent 48%),
+        rgba(8,10,12,.82);
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.30),
+        inset 0 1px 0 rgba(255,255,255,.035);
+}
+
+.gm-sale-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 13px;
+    border: 1px solid rgba(156,255,87,.22);
+    border-radius: 999px;
+    background: rgba(156,255,87,.06);
+    color: #9cff57;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+}
+
+.gm-sale-hero h1 {
+    margin: 18px auto 12px;
+    max-width: 720px;
+    color: #fff;
+    font-size: clamp(34px, 6vw, 62px);
+    line-height: 1.02;
+    letter-spacing: -2px;
+}
+
+.gm-sale-hero > p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: rgba(240,245,242,.70);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.gm-sale-highlights {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin: 25px auto;
+}
+
+.gm-sale-highlights span {
+    padding: 9px 12px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 10px;
+    background: rgba(255,255,255,.025);
+    color: rgba(255,255,255,.82);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.gm-sale-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    margin: 25px 0;
+}
+
+.gm-sale-price small {
+    color: rgba(255,255,255,.48);
+    font-size: 12px;
+}
+
+.gm-sale-price strong {
+    color: #9cff57;
+    font-size: 42px;
+    line-height: 1;
+    font-weight: 950;
+}
+
+.gm-sale-price span {
+    color: rgba(255,255,255,.55);
+    font-size: 12px;
+}
+
+.gm-sale-button {
+    display: inline-flex;
+    min-height: 50px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 25px;
+    border-radius: 13px;
+    background: #9cff57;
+    color: #081006;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 950;
+    letter-spacing: .4px;
+    box-shadow: 0 10px 30px rgba(156,255,87,.12);
+    transition: transform .2s ease, background .2s ease;
+}
+
+.gm-sale-button:hover {
+    transform: translateY(-2px);
+    background: #b1ff78;
+}
+
+.gm-sale-trust {
+    margin-top: 16px;
+    color: rgba(255,255,255,.42);
+    font-size: 12px;
+}
+
+@media (max-width: 600px) {
+    .gm-sale-hero {
+        width: calc(100% - 20px);
+        margin-top: 20px;
+        padding: 42px 18px;
+        border-radius: 19px;
+    }
+
+    .gm-sale-hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .gm-sale-hero > p {
+        font-size: 14px;
+    }
+
+    .gm-sale-price strong {
+        font-size: 36px;
+    }
+
+    .gm-sale-button {
+        width: 100%;
+    }
+}
+</style>
 </head>
 
 <body>
@@ -430,7 +579,37 @@ footer{
     <a class="back" href="index.html">← Voltar ao curso</a>
 </nav>
 
-<section class="hero">
+<section class="gm-sale-hero">
+    <div class="gm-sale-badge">🐧 GHOSTMEN LINUX</div>
+
+    <h1>Domine o Linux na prática.</h1>
+
+    <p>
+        Um kit digital direto ao ponto para você aprender Linux,
+        terminal, comandos e otimização do PC.
+    </p>
+
+    <div class="gm-sale-highlights">
+        <span>🐧 Linux</span>
+        <span>💻 Terminal</span>
+        <span>⚡ Comandos</span>
+        <span>🛠️ Otimização</span>
+    </div>
+
+    <div class="gm-sale-price">
+        <small>Pagamento único</small>
+        <strong>R$ 9,90</strong>
+        <span>📦 Conteúdo digital</span>
+    </div>
+
+    <a href="#comprar" class="gm-sale-button">
+        🚀 QUERO MEU KIT
+    </a>
+
+    <div class="gm-sale-trust">
+        🔒 Compra via Pix • 📚 Acesso ao material • 💻 Digital
+    </div>
+</section>
     <div class="badge">GHOSTMEN LINUX</div>
 
     <div class="sale-badge">🔥 KIT DIGITAL • ACESSO IMEDIATO</div><h1>Domine o Linux.<br><span>Do zero ao controle.</span></h1>
