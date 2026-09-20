@@ -4,176 +4,70 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Comandos Avançados — Ghostmen PRO</title>
-
 <style>
 *{box-sizing:border-box}
-
-body{
-margin:0;
-background:#050505;
-color:#eee;
-font-family:Arial,sans-serif;
-}
-
-main{
-max-width:900px;
-margin:auto;
-padding:40px 20px 80px;
-}
-
-a{
-color:#39ff88;
-text-decoration:none;
-}
-
-.badge{
-color:#39ff88;
-font-weight:bold;
-letter-spacing:2px;
-margin-top:30px;
-}
-
-h1{
-font-size:clamp(36px,7vw,60px);
-margin:12px 0;
-}
-
-h2{
-color:#39ff88;
-margin-top:40px;
-}
-
-p{
-color:#aaa;
-line-height:1.8;
-font-size:17px;
-}
-
-.box{
-background:#0b0b0b;
-border:1px solid #39ff8833;
-border-radius:16px;
-padding:25px;
-margin:25px 0;
-}
-
-.lesson-info{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-margin:20px 0;
-}
-
-.tag{
-padding:7px 12px;
-border-radius:20px;
-background:#39ff8815;
-color:#39ff88;
-font-size:13px;
-}
-
-button{
-background:#39ff88;
-color:#000;
-border:0;
-border-radius:10px;
-padding:15px 22px;
-font-weight:900;
-cursor:pointer;
-}
-
-button:hover{
-box-shadow:0 0 25px #39ff8855;
-}
-
-#msg{
-color:#39ff88;
-font-weight:bold;
-}
+body{margin:0;background:#050505;color:#eee;font-family:Arial,sans-serif}
+main{max-width:900px;margin:auto;padding:40px 20px 80px}
+a{color:#39ff88;text-decoration:none}
+.badge{color:#39ff88;font-weight:bold;letter-spacing:2px;margin-top:30px}
+h1{font-size:clamp(36px,7vw,60px);margin:12px 0}
+h2{color:#39ff88;margin-top:40px}
+p{color:#aaa;line-height:1.8;font-size:17px}
+.box{background:#0b0b0b;border:1px solid #39ff8833;border-radius:16px;padding:25px;margin:25px 0}
+pre{background:#020202;border:1px solid #222;border-radius:10px;padding:18px;color:#39ff88;white-space:pre-wrap;overflow:auto;line-height:1.7}
+button{background:#39ff88;color:#000;border:0;border-radius:10px;padding:15px 22px;font-weight:900;cursor:pointer}
+button:hover{box-shadow:0 0 25px #39ff8855}
+#msg{color:#39ff88;font-weight:bold}
 </style>
 </head>
-
 <body>
-
 <main>
-
-<a href="index.html">← Voltar para Terminal Profissional</a>
-
-<div class="badge">⌨️ GHOSTMEN PRO • AULA 01</div>
-
+<a href="index.html">← Voltar para o módulo</a>
+<div class="badge">👻 GHOSTMEN PRO • AULA 1</div>
 <h1>Comandos Avançados</h1>
-
-<div class="lesson-info">
-<span class="tag">💎 PRO</span>
-<span class="tag">⚡ +100 XP</span>
-<span class="tag">📚 Terminal Profissional</span>
-</div>
+<p>Conheça comandos essenciais para trabalhar com arquivos e sistema.</p>
 
 <div class="box">
-
-<h2>🎓 Sobre esta aula</h2>
-
-<p>
-Esta aula faz parte do módulo <b>Terminal Profissional</b>.
-Aqui você vai aprender conceitos importantes,
-ver exemplos práticos e realizar um desafio.
-</p>
-
-</div>
-
-<div class="box">
-
 <h2>📚 Conteúdo</h2>
+<pre>Alguns comandos fundamentais:
 
-<p>
-O conteúdo completo desta aula será apresentado
-aqui com explicações passo a passo, exemplos,
-comandos e exercícios práticos.
-</p>
+pwd — mostra o diretório atual.
+ls — lista arquivos.
+cd — muda de diretório.
+cp — copia.
+mv — move ou renomeia.
+rm — remove.
+mkdir — cria diretórios.
+cat — mostra arquivos.
 
+Combine comandos para trabalhar mais rapidamente no terminal.</pre>
 </div>
 
 <div class="box">
-
 <h2>🧪 Desafio prático</h2>
+<pre>Execute:
 
-<p>
-Depois de estudar o conteúdo, realize uma atividade
-prática relacionada ao tema desta aula.
-</p>
-
+pwd
+ls -lah
+mkdir ~/ghostmen-teste
+cd ~/ghostmen-teste
+touch arquivo.txt
+ls -la</pre>
 </div>
 
 <div class="box">
-
 <h2>🏆 Concluir aula</h2>
-
-<p>
-Quando terminar o estudo e o desafio, marque a aula
-como concluída para registrar seu progresso.
-</p>
-
-<button onclick="concluir()">
-👻 CONCLUIR AULA +100 XP
-</button>
-
+<p>Estude o conteúdo, faça o desafio e registre sua conclusão.</p>
+<button onclick="concluir()">👻 CONCLUIR AULA +100 XP</button>
 <p id="msg"></p>
-
 </div>
-
 </main>
 
 <script>
 function concluir(){
-localStorage.setItem(
-"ghostpro-terminal-profissional-1",
-"true"
-);
-
-document.getElementById("msg").textContent =
-"✅ Aula concluída! +100 XP";
+localStorage.setItem("ghostpro-terminal-profissional-1","true");
+document.getElementById("msg").textContent="✅ Aula concluída! +100 XP";
 }
 </script>
-
 </body>
 </html>
