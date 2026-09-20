@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(circle at 80% 10%, rgba(0,255,120,.08), transparent 25%),
+        #050505;
+    color: #f2f2f2;
+    font-family: Inter, sans-serif;
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .035;
+    background-image:
+        linear-gradient(rgba(255,255,255,.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.2) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.navbar {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    border-bottom: 1px solid #181818;
+    background: rgba(5,5,5,.82);
+    backdrop-filter: blur(15px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo b {
+    color: #00ff73;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar nav a {
+    color: #999;
+    font-size: 14px;
+    transition: .2s;
+}
+
+.navbar nav a:hover {
+    color: #00ff73;
+}
+
+.hero {
+    min-height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 90px 10%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.terminal {
+    font-family: "JetBrains Mono", monospace;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.terminal .green {
+    color: #00ff73;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 8vw, 92px);
+    line-height: .98;
+    letter-spacing: -5px;
+    max-width: 900px;
+}
+
+.hero h1 span {
+    color: #00ff73;
+    text-shadow: 0 0 30px rgba(0,255,115,.3);
+}
+
+.hero p {
+    max-width: 650px;
+    color: #999;
+    font-size: 18px;
+    line-height: 1.7;
+    margin: 30px 0;
+}
+
+.btn {
+    display: inline-block;
+    width: fit-content;
+    padding: 16px 24px;
+    background: #00ff73;
+    color: #000;
+    font-weight: 800;
+    border-radius: 7px;
+    transition: .25s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(0,255,115,.3);
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    padding: 45px 20px;
+    border-top: 1px solid #171717;
+    border-bottom: 1px solid #171717;
+}
+
+.stats div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.stats strong {
+    font-size: 30px;
+    color: #00ff73;
+}
+
+.stats span {
+    color: #777;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.section {
+    max-width: 1050px;
+    margin: auto;
+    padding: 110px 30px;
+}
+
+.section-title > span {
+    color: #00ff73;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+}
+
+.section-title h2 {
+    font-size: 42px;
+    margin-top: 12px;
+    letter-spacing: -2px;
+}
+
+.progress-box {
+    margin: 45px 0 25px;
+    padding: 22px;
+    border: 1px solid #202020;
+    border-radius: 12px;
+    background: #0b0b0b;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    color: #999;
+}
+
+.progress-info strong {
+    color: #00ff73;
+}
+
+.progress {
+    height: 8px;
+    background: #1c1c1c;
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.progress div {
+    height: 100%;
+    width: 0%;
+    background: #00ff73;
+    box-shadow: 0 0 15px #00ff73;
+    transition: width .5s ease;
+}
+
+.lessons {
+    display: grid;
+    gap: 12px;
+}
+
+.lesson {
+    display: grid;
+    grid-template-columns: 70px 1fr 40px;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    background: #090909;
+    border: 1px solid #1d1d1d;
+    border-radius: 12px;
+    transition: .25s;
+}
+
+.lesson:hover {
+    transform: translateX(6px);
+    border-color: #00ff73;
+    background: #0c0f0d;
+}
+
+.lesson.completed {
+    border-color: rgba(0,255,115,.4);
+}
+
+.lesson.completed .number {
+    color: #00ff73;
+}
+
+.number {
+    font-family: "JetBrains Mono", monospace;
+    color: #555;
+    font-size: 18px;
+}
+
+.tag {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    color: #00ff73;
+}
+
+.lesson h3 {
+    margin: 7px 0;
+    font-size: 19px;
+}
+
+.lesson p {
+    color: #777;
+    font-size: 14px;
+}
+
+.arrow {
+    color: #555;
+    font-size: 22px;
+}
+
+.lesson:hover .arrow {
+    color: #00ff73;
+}
+
+.about p {
+    color: #999;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 25px 0;
+}
+
+.terminal-card {
+    border: 1px solid #202020;
+    border-radius: 12px;
+    background: #080808;
+    padding: 20px;
+    font-family: "JetBrains Mono", monospace;
+    line-height: 1.8;
+    max-width: 650px;
+}
+
+.terminal-top {
+    display: flex;
+    gap: 7px;
+    margin-bottom: 20px;
+}
+
+.terminal-top i {
+    width: 10px;
+    height: 10px;
+    background: #333;
+    border-radius: 50%;
+}
+
+.green { color: #00ff73; }
+.purple { color: #c792ea; }
+.orange { color: #ffab70; }
+.gray { color: #555; }
+
+footer {
+    padding: 35px 7%;
+    border-top: 1px solid #171717;
+    display: flex;
+    justify-content: space-between;
+    color: #555;
+    font-size: 13px;
+}
+
+footer div {
+    color: #aaa;
+}
+
+@media(max-width:700px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .navbar nav {
+        display: none;
+    }
+
+    .hero {
+        padding: 80px 25px;
+        min-height: 570px;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+        letter-spacing: -3px;
+    }
+
+    .stats {
+        gap: 35px;
+    }
+
+    .section {
+        padding: 80px 20px;
+    }
+
+    .section-title h2 {
+        font-size: 32px;
+    }
+
+    .lesson {
+        grid-template-columns: 45px 1fr 20px;
+        gap: 10px;
+        padding: 20px 15px;
+    }
+
+    .lesson p {
+        display: none;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

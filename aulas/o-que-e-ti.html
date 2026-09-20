@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>01 — O que é TI? | Ghostmen TI</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+.lesson-page {
+    max-width: 850px;
+    margin: auto;
+    padding: 90px 25px;
+}
+.lesson-header {
+    margin-bottom: 45px;
+}
+.lesson-number {
+    color: #00ff73;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+}
+.lesson-page h1 {
+    font-size: clamp(40px, 7vw, 70px);
+    line-height: 1;
+    margin: 15px 0;
+    letter-spacing: -3px;
+}
+.lesson-page .intro {
+    color: #999;
+    font-size: 18px;
+    line-height: 1.7;
+}
+.content-card {
+    background: #090909;
+    border: 1px solid #202020;
+    border-radius: 14px;
+    padding: 30px;
+    margin: 20px 0;
+}
+.content-card h2 {
+    color: #00ff73;
+    margin-bottom: 15px;
+}
+.content-card p, .content-card li {
+    color: #aaa;
+    line-height: 1.8;
+}
+.content-card ul {
+    padding-left: 22px;
+}
+.quiz {
+    border: 1px solid #00ff73;
+    background: rgba(0,255,115,.03);
+}
+.quiz button, .complete, .next {
+    border: 0;
+    padding: 14px 20px;
+    margin-top: 18px;
+    border-radius: 7px;
+    background: #00ff73;
+    color: #000;
+    font-weight: 800;
+    cursor: pointer;
+}
+#result {
+    margin-top: 15px;
+    color: #00ff73;
+    font-weight: 700;
+}
+.back {
+    color: #777;
+}
+.back:hover {
+    color: #00ff73;
+}
+</style>
+</head>
+
+<body data-lesson="o-que-e-ti">
+
+<header class="navbar">
+    <div class="logo">👻 <span>GHOSTMEN</span><b>TI</b></div>
+    <a class="back" href="../index.html">← Voltar para a trilha</a>
+</header>
+
+<main class="lesson-page">
+
+<div class="lesson-header">
+    <span class="lesson-number">AULA 01 / 06</span>
+    <h1>O que é TI?</h1>
+    <p class="intro">TI significa Tecnologia da Informação. É a área responsável por trabalhar com computadores, sistemas, dados, redes, segurança e tecnologia.</p>
+</div>
+
+<div class="content-card">
+    <h2>O que você vai aprender</h2>
+    <ul>
+        <li>Conceitos fundamentais do assunto.</li>
+        <li>Como isso aparece no mundo real.</li>
+        <li>Por que esse conhecimento é importante em TI.</li>
+    </ul>
+</div>
+
+<div class="content-card">
+    <h2>Na prática</h2>
+    <p>
+        Aprender TI é entender como as peças se conectam.
+        Não precisa decorar tudo de uma vez. Primeiro entenda o conceito,
+        depois pratique e, com o tempo, aumente a dificuldade.
+    </p>
+</div>
+
+<div class="content-card quiz">
+    <h2>⚡ Quiz rápido</h2>
+    <p>Qual dessas áreas faz parte de TI?</p>
+    <button onclick="document.getElementById('result').textContent='Resposta: programação, redes, suporte, segurança, dados e muitas outras áreas fazem parte de TI.'">
+        Ver resposta
+    </button>
+    <div id="result"></div>
+</div>
+
+<button class="complete" onclick="concluir()">✓ MARCAR AULA COMO CONCLUÍDA</button>
+<a class="next" href="hardware-software.html">PRÓXIMA AULA →</a>
+
+</main>
+
+<script src="../script.js"></script>
+
+<script>
+function concluir() {
+    concluirAula("o-que-e-ti");
+    alert("Aula concluída! 👻🔥");
+}
+</script>
+
+</body>
+</html>
