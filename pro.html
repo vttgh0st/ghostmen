@@ -234,7 +234,7 @@ footer{
             autocomplete="off"
         >
 
-        <button onclick="desbloquear()">
+        <button type="button" id="gm-unlock-btn">
             🚀 DESBLOQUEAR GHOSTMEN PRO
         </button>
 
@@ -341,18 +341,20 @@ const SUPABASE_URL = "https://zdgwjvyibeojddemhjhk.supabase.co";
 const SUPABASE_KEY = "sb_publishable_HI2nz-Pf1RxQMVdYNvIdNA_EWoUXVVv"
 
 async function desbloquear() {
-    const codigo = document
-        .getElementById("codigo")
-        .value
-        .trim();
-
+    const codigoInput = document.getElementById("codigo");
     const mensagem = document.getElementById("mensagem");
+    const botao = document.getElementById("gm-unlock-btn");
+
+    const codigo = codigoInput.value.trim();
 
     if (!codigo) {
         mensagem.textContent = "⚠️ Digite seu código PRO.";
+        codigoInput.focus();
         return;
     }
 
+    botao.disabled = true;
+    botao.textContent = "🔐 VERIFICANDO...";
     mensagem.textContent = "🔐 Verificando código...";
 
     try {
@@ -383,6 +385,8 @@ async function desbloquear() {
             mensagem.textContent =
                 "✅ Código ativado! Bem-vindo ao Ghostmen PRO 👻";
 
+            botao.textContent = "✅ PRO ATIVADO";
+
             setTimeout(() => {
                 location.reload();
             }, 1000);
@@ -390,6 +394,9 @@ async function desbloquear() {
         } else {
             mensagem.textContent =
                 "❌ Código inválido ou já utilizado.";
+
+            botao.disabled = false;
+            botao.textContent = "🚀 DESBLOQUEAR GHOSTMEN PRO";
         }
 
     } catch (erro) {
@@ -397,8 +404,15 @@ async function desbloquear() {
 
         mensagem.textContent =
             "⚠️ Não foi possível verificar o código agora.";
+
+        botao.disabled = false;
+        botao.textContent = "🚀 DESBLOQUEAR GHOSTMEN PRO";
     }
 }
+
+document
+    .getElementById("gm-unlock-btn")
+    .addEventListener("click", desbloquear);
 </script>
 
     const codigo = document
