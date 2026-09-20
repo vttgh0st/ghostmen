@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -5,10 +6,623 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ghostmen TI — Do Zero ao Avançado</title>
 <link rel="stylesheet" href="style.css">
+=======
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GHOST — Digital Realm</title>
+
+    <meta name="description" content="GHOST — Digital Realm">
+
+    <style>
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #030303;
+            color: #fff;
+            font-family: Inter, Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =========================
+           FUNDO
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -2;
+
+            background:
+                radial-gradient(
+                    circle at 50% 20%,
+                    rgba(255,255,255,0.08),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 20% 80%,
+                    rgba(120,120,120,0.05),
+                    transparent 25%
+                ),
+                #030303;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 20;
+
+            background:
+                linear-gradient(
+                    rgba(255,255,255,0.015) 1px,
+                    transparent 1px
+                );
+
+            background-size: 100% 4px;
+            opacity: 0.25;
+        }
+
+        /* =========================
+           PARTÍCULAS
+        ========================= */
+
+        .particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: float linear infinite;
+        }
+
+        .particle:nth-child(1) {
+            left: 10%;
+            top: 80%;
+            animation-duration: 10s;
+        }
+
+        .particle:nth-child(2) {
+            left: 20%;
+            top: 60%;
+            animation-duration: 14s;
+        }
+
+        .particle:nth-child(3) {
+            left: 35%;
+            top: 90%;
+            animation-duration: 11s;
+        }
+
+        .particle:nth-child(4) {
+            left: 50%;
+            top: 70%;
+            animation-duration: 15s;
+        }
+
+        .particle:nth-child(5) {
+            left: 65%;
+            top: 85%;
+            animation-duration: 12s;
+        }
+
+        .particle:nth-child(6) {
+            left: 80%;
+            top: 60%;
+            animation-duration: 16s;
+        }
+
+        .particle:nth-child(7) {
+            left: 90%;
+            top: 90%;
+            animation-duration: 13s;
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.5;
+            }
+
+            80% {
+                opacity: 0.5;
+            }
+
+            to {
+                transform: translateY(-20vh);
+                opacity: 0;
+            }
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+
+            backdrop-filter: blur(18px);
+            background: rgba(3,3,3,0.65);
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 25px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 5px;
+
+            text-shadow:
+                0 0 10px rgba(255,255,255,0.5),
+                0 0 30px rgba(255,255,255,0.15);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            color: #999;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            text-shadow: 0 0 12px rgba(255,255,255,0.7);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            max-width: 1200px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            padding: 120px 25px 80px;
+
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .eyebrow {
+            color: #888;
+            font-size: 12px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+
+            animation: fadeUp 1s ease forwards;
+        }
+
+        .hero h1 {
+            font-size: clamp(70px, 14vw, 180px);
+            line-height: 0.8;
+            font-weight: 1000;
+            letter-spacing: -8px;
+
+            background: linear-gradient(
+                180deg,
+                #ffffff,
+                #999999 55%,
+                #333333
+            );
+
+            -webkit-background-clip: text;
+            color: transparent;
+
+            text-shadow:
+                0 0 40px rgba(255,255,255,0.12);
+
+            animation: reveal 1.2s ease forwards;
+        }
+
+        .hero-subtitle {
+            margin-top: 35px;
+            color: #aaa;
+            font-size: 17px;
+            letter-spacing: 1px;
+
+            animation: fadeUp 1.2s 0.2s ease both;
+        }
+
+        .hero-buttons {
+            margin-top: 40px;
+
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+
+            animation: fadeUp 1.2s 0.4s ease both;
+        }
+
+        .button {
+            padding: 15px 28px;
+            border-radius: 999px;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            border: 1px solid rgba(255,255,255,0.15);
+
+            transition:
+                transform 0.3s,
+                background 0.3s,
+                box-shadow 0.3s;
+        }
+
+        .button.primary {
+            background: #fff;
+            color: #000;
+        }
+
+        .button.secondary {
+            background: rgba(255,255,255,0.03);
+            color: #fff;
+        }
+
+        .button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 35px rgba(255,255,255,0.12);
+        }
+
+        .button.primary:hover {
+            background: #ddd;
+        }
+
+        /* =========================
+           SEÇÕES
+        ========================= */
+
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 110px 25px;
+        }
+
+        .section-title {
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: #666;
+            font-size: 11px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        .section-title h2 {
+            margin-top: 10px;
+            font-size: 45px;
+            letter-spacing: -2px;
+        }
+
+        /* =========================
+           CARDS
+        ========================= */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            min-height: 250px;
+
+            padding: 30px;
+
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.06),
+                    rgba(255,255,255,0.015)
+                );
+
+            position: relative;
+            overflow: hidden;
+
+            transition:
+                transform 0.4s,
+                border-color 0.4s,
+                box-shadow 0.4s;
+        }
+
+        .card::before {
+            content: "";
+
+            position: absolute;
+            width: 180px;
+            height: 180px;
+
+            background: rgba(255,255,255,0.07);
+
+            filter: blur(70px);
+
+            top: -100px;
+            right: -80px;
+
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+
+            border-color: rgba(255,255,255,0.25);
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.5),
+                0 0 30px rgba(255,255,255,0.04);
+        }
+
+        .card:hover::before {
+            transform: scale(1.5);
+        }
+
+        .card-number {
+            font-size: 11px;
+            color: #555;
+            letter-spacing: 3px;
+        }
+
+        .card h3 {
+            margin-top: 45px;
+            font-size: 24px;
+        }
+
+        .card p {
+            margin-top: 12px;
+            color: #888;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* =========================
+           SOBRE
+        ========================= */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 50px;
+            line-height: 1;
+            letter-spacing: -3px;
+        }
+
+        .about-text p {
+            margin-top: 25px;
+            color: #999;
+            line-height: 1.8;
+        }
+
+        .terminal {
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 18px;
+            overflow: hidden;
+
+            background: #080808;
+
+            box-shadow:
+                0 25px 80px rgba(0,0,0,0.5);
+        }
+
+        .terminal-bar {
+            height: 38px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+
+            display: flex;
+            align-items: center;
+
+            padding: 0 15px;
+            gap: 7px;
+        }
+
+        .dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #444;
+        }
+
+        .terminal-content {
+            padding: 25px;
+
+            font-family: monospace;
+            font-size: 13px;
+            line-height: 2;
+
+            color: #888;
+        }
+
+        .terminal-content .white {
+            color: #fff;
+        }
+
+        /* =========================
+           CONTATO
+        ========================= */
+
+        .contact {
+            text-align: center;
+
+            padding-top: 150px;
+            padding-bottom: 150px;
+        }
+
+        .contact h2 {
+            font-size: clamp(45px, 8vw, 90px);
+            letter-spacing: -5px;
+        }
+
+        .contact p {
+            margin: 20px auto 35px;
+            color: #888;
+            max-width: 500px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.07);
+
+            padding: 30px 25px;
+
+            color: #555;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        /* =========================
+           ANIMAÇÕES
+        ========================= */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes reveal {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+                filter: blur(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+                filter: blur(0);
+            }
+        }
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                letter-spacing: -4px;
+            }
+
+            .section-title h2 {
+                font-size: 35px;
+            }
+
+            .about-text h2 {
+                font-size: 40px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .button {
+                width: 220px;
+            }
+        }
+    </style>
+>>>>>>> a0dc6a6 (Adiciona pagina da aula de terminal e estrutura do site)
 </head>
 
 <body>
 
+<<<<<<< HEAD
 <header class="gm-nav">
     <a class="gm-nav-logo" href="#inicio" aria-label="Ghostmen TI">
         <span class="gm-nav-ghost">👻</span>
@@ -958,3 +1572,263 @@
 
 </body>
 </html>
+=======
+    <!-- PARTÍCULAS -->
+    <div class="particles">
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+    </div>
+
+    <!-- NAVBAR -->
+
+    <header>
+        <nav>
+
+            <a href="#" class="logo">
+                GHOST
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">SOBRE</a></li>
+                <li><a href="#projects">PROJETOS</a></li>
+                <li><a href="#contact">CONTATO</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <!-- HERO -->
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    DIGITAL • CREATIVE • UNKNOWN
+                </div>
+
+                <h1>
+                    GHOST
+                </h1>
+
+                <p class="hero-subtitle">
+                    Criando coisas que não deveriam existir.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#projects" class="button primary">
+                        EXPLORAR
+                    </a>
+
+                    <a href="#contact" class="button secondary">
+                        CONTATO
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROJETOS -->
+
+        <section id="projects">
+
+            <div class="section-title">
+
+                <span>
+                    01 / PROJETOS
+                </span>
+
+                <h2>
+                    O que eu faço.
+                </h2>
+
+            </div>
+
+
+            <div class="cards">
+
+                <article class="card">
+
+                    <span class="card-number">
+                        001
+                    </span>
+
+                    <h3>
+                        Websites
+                    </h3>
+
+                    <p>
+                        Sites modernos, rápidos e responsivos
+                        com uma estética única.
+                    </p>
+
+                </article>
+
+
+                <article class="card">
+
+                    <span class="card-number">
+                        002
+                    </span>
+
+                    <h3>
+                        Design
+                    </h3>
+
+                    <p>
+                        Interfaces minimalistas, dark e
+                        futuristas para projetos digitais.
+                    </p>
+
+                </article>
+
+
+                <article class="card">
+
+                    <span class="card-number">
+                        003
+                    </span>
+
+                    <h3>
+                        Tecnologia
+                    </h3>
+
+                    <p>
+                        Linux, programação, automação e
+                        experiências digitais.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- SOBRE -->
+
+        <section id="about">
+
+            <div class="about">
+
+                <div class="about-text">
+
+                    <span class="eyebrow">
+                        02 / SOBRE
+                    </span>
+
+                    <h2>
+                        Entre o código
+                        e o caos.
+                    </h2>
+
+                    <p>
+                        Um espaço dedicado à tecnologia,
+                        criatividade e experiências digitais.
+                        Tudo começa com uma ideia.
+                    </p>
+
+                </div>
+
+
+                <div class="terminal">
+
+                    <div class="terminal-bar">
+
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+
+                    </div>
+
+                    <div class="terminal-content">
+
+                        <div>
+                            <span class="white">
+                                ghost@system
+                            </span>:~$ whoami
+                        </div>
+
+                        <div>
+                            digital_creator
+                        </div>
+
+                        <div>
+                            <span class="white">
+                                ghost@system
+                            </span>:~$ status
+                        </div>
+
+                        <div>
+                            online...
+                        </div>
+
+                        <div>
+                            <span class="white">
+                                ghost@system
+                            </span>:~$ _
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTATO -->
+
+        <section class="contact" id="contact">
+
+            <span class="eyebrow">
+                03 / CONTATO
+            </span>
+
+            <h2>
+                LET'S CREATE.
+            </h2>
+
+            <p>
+                Tem uma ideia? Transforme-a em alguma coisa
+                que as pessoas não consigam ignorar.
+            </p>
+
+            <a
+                href="mailto:seuemail@email.com"
+                class="button primary"
+            >
+                ENTRAR EM CONTATO
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 GHOST — DIGITAL REALM
+
+    </footer>
+
+</body>
+</html>
+```
+>>>>>>> a0dc6a6 (Adiciona pagina da aula de terminal e estrutura do site)
