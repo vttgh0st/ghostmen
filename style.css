@@ -2056,3 +2056,197 @@ footer div {
     height: 42px;
   }
 }
+
+/* =========================================================
+   GHOSTMEN — NAVBAR PREMIUM
+   Isolada para não interferir no restante do site
+   ========================================================= */
+
+.gm-nav {
+    position: relative;
+    z-index: 1000;
+    width: min(1180px, calc(100% - 32px));
+    margin: 18px auto 0;
+    min-height: 64px;
+    padding: 10px 14px 10px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+
+    background: rgba(8, 10, 12, 0.82);
+    border: 1px solid rgba(140, 255, 80, 0.14);
+    border-radius: 18px;
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.gm-nav-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.2s ease;
+}
+
+.gm-nav-logo:hover {
+    transform: translateY(-1px);
+}
+
+.gm-nav-ghost {
+    font-size: 25px;
+    line-height: 1;
+}
+
+.gm-nav-name {
+    color: #f3f5f4;
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 1.8px;
+}
+
+.gm-nav-logo strong {
+    color: #9cff57;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.gm-nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.gm-nav-link {
+    position: relative;
+    padding: 10px 14px;
+    color: rgba(240, 245, 242, 0.68);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 10px;
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
+}
+
+.gm-nav-link:hover,
+.gm-nav-link.gm-nav-active {
+    color: #ffffff;
+    background: rgba(156, 255, 87, 0.07);
+}
+
+.gm-nav-link.gm-nav-active::after {
+    content: "";
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 4px;
+    height: 2px;
+    border-radius: 10px;
+    background: #9cff57;
+}
+
+.gm-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.gm-nav-pro,
+.gm-nav-start {
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+    border-radius: 11px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 800;
+    white-space: nowrap;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.gm-nav-pro {
+    color: #9cff57;
+    border: 1px solid rgba(156, 255, 87, 0.24);
+    background: rgba(156, 255, 87, 0.055);
+}
+
+.gm-nav-start {
+    color: #081006;
+    background: #9cff57;
+    border: 1px solid #9cff57;
+}
+
+.gm-nav-pro:hover,
+.gm-nav-start:hover {
+    transform: translateY(-2px);
+}
+
+.gm-nav-pro:hover {
+    background: rgba(156, 255, 87, 0.11);
+}
+
+.gm-nav-start:hover {
+    background: #b1ff78;
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+    .gm-nav {
+        width: calc(100% - 20px);
+        margin-top: 10px;
+        padding: 9px 10px 9px 13px;
+        border-radius: 15px;
+        gap: 8px;
+    }
+
+    .gm-nav-name {
+        font-size: 14px;
+        letter-spacing: 1.2px;
+    }
+
+    .gm-nav-ghost {
+        font-size: 21px;
+    }
+
+    .gm-nav-links {
+        display: none;
+    }
+
+    .gm-nav-actions {
+        margin-left: auto;
+    }
+
+    .gm-nav-pro,
+    .gm-nav-start {
+        min-height: 37px;
+        padding: 0 11px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 420px) {
+    .gm-nav-name {
+        display: none;
+    }
+
+    .gm-nav-pro {
+        display: none;
+    }
+
+    .gm-nav-start {
+        padding: 0 13px;
+    }
+}
